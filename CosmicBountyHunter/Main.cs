@@ -4,30 +4,36 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CosmicBountyHunter
 {
-    public class Game1 : Game
+    public class Main : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
 
-        public Game1()
+        World world;
+
+        public Main()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            Globals.content = this.Content;
+            Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            world = new World();
+        }
+
+        protected override void UnloadContent()
+        {
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -35,7 +41,7 @@ namespace CosmicBountyHunter
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            world.Update();
 
             base.Update(gameTime);
         }
@@ -44,9 +50,22 @@ namespace CosmicBountyHunter
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+
+            world.Draw();
+
+            Globals.spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        internal class Program
+        {
+            private static void Main(string[] args)
+            {
+                using var game = new CosmicBountyHunter.Main();
+                game.Run();
+            }
         }
     }
 }
