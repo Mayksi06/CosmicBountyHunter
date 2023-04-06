@@ -11,11 +11,12 @@ namespace CosmicHunter
 
         World world;
 
+        Basic2d cursor;
+
         public Main()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
         }
 
         protected override void Initialize()
@@ -27,7 +28,11 @@ namespace CosmicHunter
         {
             Globals.content = this.Content;
             Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            cursor = new Basic2d("2d\\Misc\\cursor", new Vector2(0, 0), new Vector2(28, 28));
+
             Globals.keyboard = new MdKeyboard();
+            Globals.mouse = new MdMouseControl();
 
             world = new World();
         }
@@ -43,22 +48,25 @@ namespace CosmicHunter
                 Exit();
 
             Globals.keyboard.Update();
+            Globals.mouse.Update();
 
             world.Update();
 
             Globals.keyboard.UpdateOld();
+            Globals.mouse.UpdateOld();
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black); //CornflowerBlue
 
             Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
-            world.Draw();
+            world.Draw(Vector2.Zero);
 
+            cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0));
             Globals.spriteBatch.End();
 
             base.Draw(gameTime);

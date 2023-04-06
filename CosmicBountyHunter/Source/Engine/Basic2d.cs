@@ -10,6 +10,7 @@ namespace CosmicHunter
 {
     public class Basic2d
     {
+        public float rotation;
         public Vector2 position, dimensions;
         public Texture2D myModel;
         public Basic2d(string path, Vector2 position, Vector2 dimensions)
@@ -25,11 +26,19 @@ namespace CosmicHunter
 
         }
 
-        public virtual void Draw()
+        public virtual void Draw(Vector2 offset)
         {
             if (myModel != null)
             {
-                Globals.spriteBatch.Draw(myModel, new Rectangle((int)(position.X), (int)(position.Y), (int)dimensions.X, (int)dimensions.Y), null, Color.White, 0.0f, new Vector2(myModel.Bounds.Width / 2, myModel.Bounds.Height / 2), new SpriteEffects(), 0);
+                Globals.spriteBatch.Draw(myModel, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), (int)dimensions.X, (int)dimensions.Y), null, Color.White, rotation, new Vector2(myModel.Bounds.Width / 2, myModel.Bounds.Height / 2), new SpriteEffects(), 0);
+            }
+        }
+
+        public virtual void Draw(Vector2 offset, Vector2 origin)
+        {
+            if (myModel != null)
+            {
+                Globals.spriteBatch.Draw(myModel, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), (int)dimensions.X, (int)dimensions.Y), null, Color.White, rotation, new Vector2(origin.X, origin.Y), new SpriteEffects(), 0);
             }
         }
     }

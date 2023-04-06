@@ -53,7 +53,6 @@ namespace CosmicHunter
             return false;
         }
 
-
         public virtual void GetPressedKeys()
         {
             bool found = false;

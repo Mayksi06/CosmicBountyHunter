@@ -9,39 +9,42 @@ namespace CosmicHunter
 {
     public class Hero : Basic2d
     {
+        public float speed;
         public Hero(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
         {
-
+            speed = 4.0f;
         }
 
         public override void Update()
         {
             if (Globals.keyboard.GetPress("A"))
             {
-                position = new Vector2(position.X - 2, position.Y);
+                position = new Vector2(position.X - speed, position.Y);
             }
 
             if (Globals.keyboard.GetPress("D"))
             {
-                position = new Vector2(position.X + 2, position.Y);
+                position = new Vector2(position.X + speed, position.Y);
             }
 
             if (Globals.keyboard.GetPress("W"))
             {
-                position = new Vector2(position.X, position.Y - 2);
+                position = new Vector2(position.X, position.Y - speed);
             }
 
             if (Globals.keyboard.GetPress("S"))
             {
-                position = new Vector2(position.X, position.Y + 2);
+                position = new Vector2(position.X, position.Y + speed);
             }
+
+            rotation = Globals.RotateTowards(position, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y));
 
             base.Update();
         }
 
-        public override void Draw()
+        public override void Draw(Vector2 offset)
         {
-            base.Draw();
+            base.Draw(offset);
         }
     }
 }

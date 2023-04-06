@@ -20,9 +20,9 @@ namespace CosmicHunter
             hero.Update();
         }
 
-        public virtual void Draw()
+        public virtual void Draw(Vector2 offset)
         {
-            hero.Draw();
+            hero.Draw(offset);
         }
     }
 }
