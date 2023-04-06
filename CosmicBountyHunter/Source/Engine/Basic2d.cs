@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CosmicBountyHunter
+namespace CosmicHunter
 {
     public class Basic2d
     {

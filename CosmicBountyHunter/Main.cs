@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace CosmicBountyHunter
+namespace CosmicHunter
 {
     public class Main : Game
     {
@@ -27,6 +27,7 @@ namespace CosmicBountyHunter
         {
             Globals.content = this.Content;
             Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
+            Globals.keyboard = new MdKeyboard();
 
             world = new World();
         }
@@ -41,7 +42,11 @@ namespace CosmicBountyHunter
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            Globals.keyboard.Update();
+
             world.Update();
+
+            Globals.keyboard.UpdateOld();
 
             base.Update(gameTime);
         }
@@ -63,7 +68,7 @@ namespace CosmicBountyHunter
         {
             private static void Main(string[] args)
             {
-                using var game = new CosmicBountyHunter.Main();
+                using var game = new CosmicHunter.Main();
                 game.Run();
             }
         }

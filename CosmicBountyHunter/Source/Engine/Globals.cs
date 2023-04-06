@@ -10,11 +10,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace CosmicBountyHunter
+namespace CosmicHunter
 {
     public class Globals
     {
         public static ContentManager content;
         public static SpriteBatch spriteBatch;
+
+        public static MdKeyboard keyboard;
     }
 }

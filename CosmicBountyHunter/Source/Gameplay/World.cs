@@ -5,24 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CosmicBountyHunter
+namespace CosmicHunter
 {
     public class World
     {
-        public Basic2d ship;
+        public Hero hero;
         public World()
         {
-            ship = new Basic2d("2d\\ship", new Vector2(300, 300), new Vector2(100, 100));
+            hero = new Hero("2d\\ship", new Vector2(300, 300), new Vector2(100, 100));
         }
 
         public virtual void Update()
         {
-            ship.Update();
+            hero.Update();
         }
 
         public virtual void Draw()
         {
-            ship.Draw();
+            hero.Draw();
         }
     }
 }
