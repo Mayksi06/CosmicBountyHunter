@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CosmicHunter
+namespace CosmicHunter.Source.Gameplay.World.Units
 {
-    public class Hero : Basic2d
+    public class Hero : Unit
     {
         public float speed;
         public Hero(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
@@ -38,6 +38,11 @@ namespace CosmicHunter
             }
 
             rotation = Globals.RotateTowards(position, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y));
+
+            if (Globals.mouse.LeftClick())
+            {
+                GameGlobals.PassProjectile(new Bullet(new Vector2(position.X, position.Y), this, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y)));
+            }
 
             base.Update();
         }

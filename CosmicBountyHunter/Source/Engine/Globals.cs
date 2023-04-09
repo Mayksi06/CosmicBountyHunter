@@ -12,6 +12,9 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CosmicHunter
 {
+    public delegate void PassObject(object i);
+    public delegate object PassObjectAndReturn(object i);
+
     public class Globals
     {
         public static int screenHeight, screenWidth;
@@ -21,6 +24,8 @@ namespace CosmicHunter
 
         public static MdKeyboard keyboard;
         public static MdMouseControl mouse;
+
+        public static GameTime gameTime;
 
         public static float GetDistance(Vector2 position, Vector2 target)
         {

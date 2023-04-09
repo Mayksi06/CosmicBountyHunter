@@ -21,6 +21,14 @@ namespace CosmicHunter
 
         protected override void Initialize()
         {
+            Globals.screenWidth = 900; //800-1600-1920
+            Globals.screenHeight = 500; //500-900-1080
+
+            graphics.PreferredBackBufferWidth = Globals.screenWidth;
+            graphics.PreferredBackBufferHeight = Globals.screenHeight;
+
+            graphics.ApplyChanges();
+
             base.Initialize();
         }
 
@@ -47,6 +55,7 @@ namespace CosmicHunter
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            Globals.gameTime = gameTime;
             Globals.keyboard.Update();
             Globals.mouse.Update();
 
@@ -60,7 +69,8 @@ namespace CosmicHunter
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black); //CornflowerBlue
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
