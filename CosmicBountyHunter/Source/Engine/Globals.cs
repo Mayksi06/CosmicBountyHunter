@@ -32,6 +32,21 @@ namespace CosmicHunter
             return (float)Math.Sqrt(Math.Pow(position.X - target.X, 2) + Math.Pow(position.Y - target.Y, 2));
         }
 
+        public static Vector2 RadialMovement(Vector2 focus, Vector2 position, float speed)
+        {
+            //make speed on the X and the Y the exact same speed
+            float distance = Globals.GetDistance(position, focus);
+
+            if (distance <= speed)
+            {
+                return focus - position;
+            }
+            else
+            {
+                return (focus - position) * speed / distance;
+            }
+        }
+
         public static float RotateTowards(Vector2 Pos, Vector2 focus)
         {
             float h, sineTheta, angle;

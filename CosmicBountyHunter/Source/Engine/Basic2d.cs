@@ -21,7 +21,7 @@ namespace CosmicHunter
             myModel = Globals.content.Load<Texture2D>(path);
         }
 
-        public virtual void Update()
+        public virtual void Update(Vector2 offset)
         {
 
         }

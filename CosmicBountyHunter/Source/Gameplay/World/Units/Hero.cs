@@ -15,7 +15,7 @@ namespace CosmicHunter.Source.Gameplay.World.Units
             speed = 4.0f;
         }
 
-        public override void Update()
+        public override void Update(Vector2 offset)
         {
             if (Globals.keyboard.GetPress("A"))
             {
@@ -44,7 +44,7 @@ namespace CosmicHunter.Source.Gameplay.World.Units
                 GameGlobals.PassProjectile(new Bullet(new Vector2(position.X, position.Y), this, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y)));
             }
 
-            base.Update();
+            base.Update(offset);
         }
 
         public override void Draw(Vector2 offset)

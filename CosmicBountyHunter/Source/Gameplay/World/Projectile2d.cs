@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -50,6 +51,15 @@ namespace CosmicHunter
 
         public virtual bool HitSomething(List<Unit> units)
         {
+            for (int i = 0; i < units.Count; i++)
+            {
+                if (Globals.GetDistance(position, units[i].position) < units[i].hitDistance)
+                {
+                    units[i].GetHit();
+                    return true;
+                }
+            }
+
             return false;
         }
 
