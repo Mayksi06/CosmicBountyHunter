@@ -9,6 +9,7 @@ namespace CosmicHunter
 {
     public class SpawnPoint : Basic2d
     {
+        int i = 0;
         public bool dead;
         public float hitDistance;
         public MdTimer spawnTimer = new MdTimer(3000);
@@ -22,8 +23,10 @@ namespace CosmicHunter
         {
             spawnTimer.UpdateTimer();
 
-            if (spawnTimer.Test())
+            if (spawnTimer.Test() && i < 5)
+            //if (spawnTimer.Test())
             {
+                i++;
                 SpawnMob();
                 spawnTimer.ResetToZero();
             }

@@ -10,8 +10,10 @@ namespace CosmicHunter
 {
     public class World
     {
+        public int enemiesRemaining;
         public Vector2 offset;
         public Hero hero;
+        public UI userInterface;
 
         public List<Projectile2d> projectiles = new List<Projectile2d>();
         public List<Mob> mobs = new List<Mob>();
@@ -19,6 +21,7 @@ namespace CosmicHunter
 
         public World()
         {
+            enemiesRemaining = 15;
             hero = new Hero("2d\\ship", new Vector2(300, 300), new Vector2(100, 100));
 
             GameGlobals.PassProjectile = AddProjectile;
@@ -33,6 +36,8 @@ namespace CosmicHunter
 
             spawnPoints.Add(new SpawnPoint("2d\\Misc\\portal", new Vector2(Globals.screenWidth - 50, 50), new Vector2(50, 50)));
             spawnPoints[spawnPoints.Count - 1].spawnTimer.AddToTimer(1000);
+
+            userInterface = new UI();
         }
 
         public virtual void Update()
@@ -61,10 +66,13 @@ namespace CosmicHunter
 
                 if (mobs[i].dead)
                 {
+                    enemiesRemaining--;
                     mobs.RemoveAt(i);
                     i--;
                 }
             }
+
+            userInterface.Update(this);
         }
 
         public virtual void AddMob(object info)
@@ -95,6 +103,8 @@ namespace CosmicHunter
             {
                 mobs[i].Draw(offset);
             }
+
+            userInterface.Draw(this);
         }
     }
 }
