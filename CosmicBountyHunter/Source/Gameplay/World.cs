@@ -1,5 +1,4 @@
-﻿using CosmicHunter.Source.Gameplay.World.Units;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CosmicHunter
 {
+    //active game logic
     public class World
     {
         public int enemiesRemaining;
@@ -22,7 +22,9 @@ namespace CosmicHunter
         public World()
         {
             enemiesRemaining = 15;
-            hero = new Hero("2d\\ship", new Vector2(300, 300), new Vector2(100, 100));
+            //hero spawn X and Y position on screen and hero size
+            //X = left and right, Y = up and down
+            hero = new Hero("2d\\ship", new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 100 * 70), new Vector2(100, 100));
 
             GameGlobals.PassProjectile = AddProjectile;
             GameGlobals.PassMob = AddMob;

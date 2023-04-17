@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace CosmicHunter
 {
+    //draw 2d objects
     public class Basic2d
     {
         public float rotation;
-        public Vector2 position, dimensions;
+        public Vector2 position, dimensions;    //X and Y coordinates
         public Texture2D myModel;
         public Basic2d(string path, Vector2 position, Vector2 dimensions)
         {
@@ -30,14 +31,17 @@ namespace CosmicHunter
         {
             if (myModel != null)
             {
+                //position is the center of the image
                 Globals.spriteBatch.Draw(myModel, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), (int)dimensions.X, (int)dimensions.Y), null, Color.White, rotation, new Vector2(myModel.Bounds.Width / 2, myModel.Bounds.Height / 2), new SpriteEffects(), 0);
             }
         }
 
         public virtual void Draw(Vector2 offset, Vector2 origin)
         {
+            //make sure mymodel is set
             if (myModel != null)
             {
+                //creates a rectangle of the size of the 2d object, position is given position of image
                 Globals.spriteBatch.Draw(myModel, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), (int)dimensions.X, (int)dimensions.Y), null, Color.White, rotation, new Vector2(origin.X, origin.Y), new SpriteEffects(), 0);
             }
         }

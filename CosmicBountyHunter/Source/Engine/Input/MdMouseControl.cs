@@ -16,8 +16,10 @@ namespace CosmicHunter
     {
         public bool dragging, rightDrag;
 
+        //AdjustedPosition = for zooming in and out
         public Vector2 newMousePosition, oldMousePosition, firstMousePosition, newMouseAdjustedPosition, systemCursorPosition, screenLock;
         
+        //first mouse for dragging something -> first mouse = first click
         public MouseState newMouse, oldMouse, firstMouse;
 
         public MdMouseControl()
@@ -96,6 +98,7 @@ namespace CosmicHunter
 
         public Vector2 GetScreenPos(MouseState MOUSE)
         {
+            //new mouse position
             Vector2 tempVec = new Vector2(MOUSE.Position.X, MOUSE.Position.Y);
 
             return tempVec;
@@ -103,6 +106,7 @@ namespace CosmicHunter
 
         public virtual bool LeftClick()
         {
+            //see if mouse button is clicked
             if (newMouse.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && oldMouse.LeftButton != Microsoft.Xna.Framework.Input.ButtonState.Pressed && newMouse.Position.X >= 0 && newMouse.Position.X <= Globals.screenWidth && newMouse.Position.Y >= 0 && newMouse.Position.Y <= Globals.screenHeight)
             {
                 return true;
@@ -113,6 +117,7 @@ namespace CosmicHunter
 
         public virtual bool LeftClickHold()
         {
+            //see if mouse button is being held clicked
             bool holding = false;
 
             if (newMouse.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && oldMouse.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && newMouse.Position.X >= 0 && newMouse.Position.X <= Globals.screenWidth && newMouse.Position.Y >= 0 && newMouse.Position.Y <= Globals.screenHeight)

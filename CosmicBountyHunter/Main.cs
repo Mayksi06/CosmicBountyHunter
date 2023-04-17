@@ -21,7 +21,7 @@ namespace CosmicHunter
 
         protected override void Initialize()
         {
-            Globals.screenWidth = 900; //800-1600-1920
+            Globals.screenWidth = 900; //900-1600-1920
             Globals.screenHeight = 500; //500-900-1080
 
             graphics.PreferredBackBufferWidth = Globals.screenWidth;
@@ -37,7 +37,8 @@ namespace CosmicHunter
             Globals.content = this.Content;
             Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            cursor = new Basic2d("2d\\Misc\\cursor", new Vector2(0, 0), new Vector2(28, 28));
+            //load cursor image, set cursor position and size
+            cursor = new Basic2d("2d\\Misc\\cursor", new Vector2(0, 0), new Vector2(35, 35)); //28, 28
 
             Globals.keyboard = new MdKeyboard();
             Globals.mouse = new MdMouseControl();
@@ -47,11 +48,12 @@ namespace CosmicHunter
 
         protected override void UnloadContent()
         {
-
+            //get rid of anything you don't want
         }
 
         protected override void Update(GameTime gameTime)
         {
+            //updating the game logic, the keyboard and the mouse
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -72,11 +74,14 @@ namespace CosmicHunter
             //GraphicsDevice.Clear(Color.CornflowerBlue);
             GraphicsDevice.Clear(Color.Black);
 
+            //spriteBatch has to open and close, everything that happens in the game should come between it
             Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
+            //draw the world
             world.Draw(Vector2.Zero);
 
-            cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0));
+            //cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0));  //position = top left of image
+            cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y));   //position = center of image
             Globals.spriteBatch.End();
 
             base.Draw(gameTime);

@@ -5,38 +5,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CosmicHunter.Source.Gameplay.World.Units
+namespace CosmicHunter
 {
     public class Hero : Unit
     {
         public float speed;
         public Hero(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
         {
-            speed = 4.0f;
+            speed = 4.0f;   //change the hero movement speed
         }
 
         public override void Update(Vector2 offset)
         {
-            if (Globals.keyboard.GetPress("A"))
+            // if the key A is pressed -> move the hero to the left
+            if (Globals.keyboard.GetPress("A") || Globals.keyboard.GetPress("Q") || Globals.keyboard.GetPress("Left"))
             {
                 position = new Vector2(position.X - speed, position.Y);
             }
 
-            if (Globals.keyboard.GetPress("D"))
+            if (Globals.keyboard.GetPress("D") || Globals.keyboard.GetPress("Right"))
             {
                 position = new Vector2(position.X + speed, position.Y);
             }
 
-            if (Globals.keyboard.GetPress("W"))
+            if (Globals.keyboard.GetPress("W") || Globals.keyboard.GetPress("Z") || Globals.keyboard.GetPress("Up"))
             {
                 position = new Vector2(position.X, position.Y - speed);
             }
 
-            if (Globals.keyboard.GetPress("S"))
+            if (Globals.keyboard.GetPress("S") || Globals.keyboard.GetPress("Down"))
             {
                 position = new Vector2(position.X, position.Y + speed);
             }
 
+            //rotate the top of the hero towards the mouse cursor position
             rotation = Globals.RotateTowards(position, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y));
 
             if (Globals.mouse.LeftClick())

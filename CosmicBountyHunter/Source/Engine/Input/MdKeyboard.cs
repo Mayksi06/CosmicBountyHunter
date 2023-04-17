@@ -24,7 +24,7 @@ namespace CosmicHunter
 
         public virtual void Update()
         {
-            newKeyboard = Keyboard.GetState();
+            newKeyboard = Keyboard.GetState();      //get everything that happens on the keyboard
 
             GetPressedKeys();
         }
@@ -42,7 +42,7 @@ namespace CosmicHunter
 
         public bool GetPress(string KEY)
         {
-            for (int i = 0; i < pressedKeys.Count; i++)
+            for (int i = 0; i < pressedKeys.Count; i++)     //search the key we're looking for
             {
                 if (pressedKeys[i].key == KEY)
                 {
@@ -59,6 +59,7 @@ namespace CosmicHunter
 
             pressedKeys.Clear();
 
+            //go through all of the keys
             for (int i = 0; i < newKeyboard.GetPressedKeys().Length; i++)
             {
                 pressedKeys.Add(new MdKey(newKeyboard.GetPressedKeys()[i].ToString(), 1));

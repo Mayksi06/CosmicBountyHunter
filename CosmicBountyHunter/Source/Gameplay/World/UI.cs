@@ -32,7 +32,7 @@ namespace CosmicHunter
             string remainingEnemies = "Enemies Remaining: " + world.enemiesRemaining;
             Vector2 stringDimensions = font.MeasureString(remainingEnemies);
 
-            Globals.spriteBatch.DrawString(font, remainingEnemies, new Vector2(Globals.screenWidth / 2 - stringDimensions.X / 2, Globals.screenHeight - 40), Color.Red);
+            Globals.spriteBatch.DrawString(font, remainingEnemies, new Vector2(Globals.screenWidth / 2 - stringDimensions.X / 2, Globals.screenHeight / 100 * 90), Color.Red);
         }
     }
 }

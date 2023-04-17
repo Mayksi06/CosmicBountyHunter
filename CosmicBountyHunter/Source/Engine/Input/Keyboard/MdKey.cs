@@ -25,7 +25,7 @@ namespace CosmicHunter
 
         public virtual void Update()
         {
-            state = 2;
+            state = 2;  //if state gets updates from 1 to 2, then that means the key got pressed
         }
 
         public void MakePrint(string KEY)

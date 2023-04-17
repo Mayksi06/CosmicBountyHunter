@@ -19,8 +19,8 @@ namespace CosmicHunter
     {
         public static int screenHeight, screenWidth;
 
-        public static ContentManager content;
-        public static SpriteBatch spriteBatch;
+        public static ContentManager content;       //loads in images
+        public static SpriteBatch spriteBatch;      //draw the images
 
         public static MdKeyboard keyboard;
         public static MdMouseControl mouse;
@@ -29,6 +29,7 @@ namespace CosmicHunter
 
         public static float GetDistance(Vector2 position, Vector2 target)
         {
+            //mouse control
             return (float)Math.Sqrt(Math.Pow(position.X - target.X, 2) + Math.Pow(position.Y - target.Y, 2));
         }
 
@@ -49,6 +50,7 @@ namespace CosmicHunter
 
         public static float RotateTowards(Vector2 Pos, Vector2 focus)
         {
+            //rotate towards given object
             float h, sineTheta, angle;
 
             if (Pos.Y - focus.Y != 0)
