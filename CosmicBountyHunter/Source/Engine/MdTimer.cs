@@ -7,6 +7,7 @@ using System.Xml.Linq;
 
 namespace CosmicHunter
 {
+    //keeps track of how much time has passed, needed for firing the projectiles
     public class MdTimer
     {
         public bool goodToGo;
@@ -41,16 +42,19 @@ namespace CosmicHunter
 
         public void UpdateTimer(float SPEED)
         {
+            //speeding up or slowing down the time
             timer += TimeSpan.FromTicks((long)(Globals.gameTime.ElapsedGameTime.Ticks * SPEED));
         }
 
         public virtual void AddToTimer(int MSEC)
         {
+            //add cooldowns
             timer += TimeSpan.FromMilliseconds((long)(MSEC));
         }
 
         public bool Test()
         {
+            //set goodToGo to true
             if (timer.TotalMilliseconds >= mSec || goodToGo)
             {
                 return true;
@@ -63,6 +67,7 @@ namespace CosmicHunter
 
         public void Reset()
         {
+            //set goodToGo back to false
             timer = timer.Subtract(new TimeSpan(0, 0, mSec / 60000, mSec / 1000, mSec % 1000));
             if (timer.TotalMilliseconds < 0)
             {
@@ -73,6 +78,7 @@ namespace CosmicHunter
 
         public void Reset(int NEWTIMER)
         {
+            //Reset with a given value
             timer = TimeSpan.Zero;
             MSec = NEWTIMER;
             goodToGo = false;
@@ -92,11 +98,13 @@ namespace CosmicHunter
 
         public void SetTimer(TimeSpan TIME)
         {
+            //set a timer with a timespan argument
             timer = TIME;
         }
 
         public virtual void SetTimer(int MSEC)
         {
+            //set a timer with an int argument
             timer = TimeSpan.FromMilliseconds((long)(MSEC));
         }
     }

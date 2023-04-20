@@ -16,15 +16,22 @@ namespace CosmicHunter
 
         public virtual void Update(Vector2 offset, Hero hero)
         {
-            AI(hero);
+            AI(hero);   //use the mob AI
 
             base.Update(offset);
         }
 
         public virtual void AI(Hero hero)
         {
+            //make the mob go towards the hero position
             position += Globals.RadialMovement(hero.position, position, speed);
             rotation = Globals.RotateTowards(position, hero.position);
+
+            if (Globals.GetDistance(position, hero.position) < 15) //distance from mob before hero gets hit
+            {
+                hero.GetHit(1);     //hero gets 1 damage when getting hit
+                dead = true;        //the mob dies when it hits the hero
+            }
         }
 
         public override void Draw(Vector2 offset)

@@ -9,6 +9,7 @@ namespace CosmicHunter
 {
     public class GameGlobals
     {
+        //any object can create a projectile
         public static PassObject PassProjectile, PassMob;
     }
 }

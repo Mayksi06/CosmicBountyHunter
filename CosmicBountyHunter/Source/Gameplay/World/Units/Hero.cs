@@ -13,6 +13,9 @@ namespace CosmicHunter
         public Hero(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
         {
             speed = 4.0f;   //change the hero movement speed
+
+            health = 5;
+            healthMax = health;
         }
 
         public override void Update(Vector2 offset)
@@ -43,6 +46,7 @@ namespace CosmicHunter
 
             if (Globals.mouse.LeftClick())
             {
+                //hero will shoot a bullet by left clicking the mouse
                 GameGlobals.PassProjectile(new Bullet(new Vector2(position.X, position.Y), this, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y)));
             }
 
@@ -51,6 +55,7 @@ namespace CosmicHunter
 
         public override void Draw(Vector2 offset)
         {
+            //draw the hero
             base.Draw(offset);
         }
     }

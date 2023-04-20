@@ -21,6 +21,7 @@ namespace CosmicHunter
 
         protected override void Initialize()
         {
+            //screen size
             Globals.screenWidth = 900; //900-1600-1920
             Globals.screenHeight = 500; //500-900-1080
 
@@ -57,7 +58,7 @@ namespace CosmicHunter
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            Globals.gameTime = gameTime;
+            Globals.gameTime = gameTime;    //gives number of milliseconds between frames
             Globals.keyboard.Update();
             Globals.mouse.Update();
 
@@ -81,7 +82,7 @@ namespace CosmicHunter
             world.Draw(Vector2.Zero);
 
             //cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0));  //position = top left of image
-            cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y));   //position = center of image
+            cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), Color.White);   //position = center of image
             Globals.spriteBatch.End();
 
             base.Draw(gameTime);

@@ -12,7 +12,7 @@ namespace CosmicHunter
         int i = 0;
         public bool dead;
         public float hitDistance;
-        public MdTimer spawnTimer = new MdTimer(3000);
+        public MdTimer spawnTimer = new MdTimer(3000);  //enemy spawning speed
         public SpawnPoint(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
         {
             dead = false;
@@ -23,8 +23,8 @@ namespace CosmicHunter
         {
             spawnTimer.UpdateTimer();
 
-            if (spawnTimer.Test() && i < 5)
-            //if (spawnTimer.Test())
+            if (spawnTimer.Test() && i < 5) //5 waves of enemies, 3 enemies per wave
+            //if (spawnTimer.Test())        //unlimited waves of enemies
             {
                 i++;
                 SpawnMob();
@@ -41,12 +41,13 @@ namespace CosmicHunter
 
         public virtual void SpawnMob()
         {
+            //spawn the mob from the spawnpoint position
             GameGlobals.PassMob(new Seeker(new Vector2(position.X, position.Y)));
         }
 
         public override void Draw(Vector2 offset)
         {
-            base.Draw(offset);
+            base.Draw(offset);  //draw the spawn point
         }
     }
 }
