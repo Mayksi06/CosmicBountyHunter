@@ -9,6 +9,8 @@ namespace CosmicHunter
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
+        GamePlay gamePlay;
+
         World world;
 
         Basic2d cursor;
@@ -44,7 +46,7 @@ namespace CosmicHunter
             Globals.keyboard = new MdKeyboard();
             Globals.mouse = new MdMouseControl();
 
-            world = new World();
+            gamePlay = new GamePlay();
         }
 
         protected override void UnloadContent()
@@ -62,7 +64,7 @@ namespace CosmicHunter
             Globals.keyboard.Update();
             Globals.mouse.Update();
 
-            world.Update();
+            gamePlay.Update();
 
             Globals.keyboard.UpdateOld();
             Globals.mouse.UpdateOld();
@@ -79,7 +81,7 @@ namespace CosmicHunter
             Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
             //draw the world
-            world.Draw(Vector2.Zero);
+            gamePlay.Draw();
 
             //cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0));  //position = top left of image
             cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), Color.White);   //position = center of image

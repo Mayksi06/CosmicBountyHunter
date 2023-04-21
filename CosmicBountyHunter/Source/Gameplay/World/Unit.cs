@@ -31,7 +31,7 @@ namespace CosmicHunter
         {
             health -= damage;
 
-            if (health < 0)
+            if (health <= 0)
             {
                 dead = true;        //the unit dies if it gets hit
             }

@@ -14,7 +14,7 @@ namespace CosmicHunter
         {
             speed = 4.0f;   //change the hero movement speed
 
-            health = 5;
+            health = 4;
             healthMax = health;
         }
 

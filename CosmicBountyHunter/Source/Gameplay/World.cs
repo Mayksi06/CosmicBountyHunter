@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,12 @@ namespace CosmicHunter
         public List<Mob> mobs = new List<Mob>();
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
-        public World()
+        public PassObject resetWorld;
+
+        public World(PassObject resetWorld)
         {
+            this.resetWorld = resetWorld;
+
             enemiesRemaining = 15;
             //hero spawn X and Y position on screen and hero size
             //X = left and right, Y = up and down
@@ -45,33 +50,44 @@ namespace CosmicHunter
 
         public virtual void Update()
         {
-            hero.Update(offset);
-
-            for (int i = 0; i < spawnPoints.Count; i++)     //create the spawnpoints first
+            if (!hero.dead)
             {
-                spawnPoints[i].Update(offset);
-            }
+                hero.Update(offset);
 
-            for (int i = 0; i < projectiles.Count; i++)     //create the mobs after
-            {
-                projectiles[i].Update(offset, mobs.ToList<Unit>());
-
-                if (projectiles[i].done)
+                for (int i = 0; i < spawnPoints.Count; i++)     //create the spawnpoints first
                 {
-                    projectiles.RemoveAt(i);
-                    i--;
+                    spawnPoints[i].Update(offset);
+                }
+
+                for (int i = 0; i < projectiles.Count; i++)     //create the mobs after
+                {
+                    projectiles[i].Update(offset, mobs.ToList<Unit>());
+
+                    if (projectiles[i].done)
+                    {
+                        projectiles.RemoveAt(i);
+                        i--;
+                    }
+                }
+
+                for (int i = 0; i < mobs.Count; i++)            //remove the mobs if they get killed
+                {
+                    mobs[i].Update(offset, hero);
+
+                    if (mobs[i].dead)
+                    {
+                        enemiesRemaining--;     //decrement the number of remaining enemies if an enemy gets killed
+                        mobs.RemoveAt(i);
+                        i--;
+                    }
                 }
             }
 
-            for (int i = 0; i < mobs.Count; i++)            //remove the mobs if they get killed
+            else
             {
-                mobs[i].Update(offset, hero);
-
-                if (mobs[i].dead)
+                if (Globals.keyboard.GetPress("Enter"))
                 {
-                    enemiesRemaining--;     //decrement the number of remaining enemies if an enemy gets killed
-                    mobs.RemoveAt(i);
-                    i--;
+                    resetWorld(null);
                 }
             }
 
@@ -108,7 +124,7 @@ namespace CosmicHunter
                 mobs[i].Draw(offset);   //draw the mobs
             }
 
-            userInterface.Draw(this);   //draw the user interface
+            userInterface.Draw(this, hero);   //draw the user interface
         }
     }
 }
