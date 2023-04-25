@@ -22,7 +22,7 @@ namespace CosmicHunter
             hitDistance = 35.0f;    //hitbox of the unit
         }
 
-        public override void Update(Vector2 offset)
+        public virtual void Update(Vector2 offset, Player enemy)
         {
             base.Update(offset);    //update the unit
         }

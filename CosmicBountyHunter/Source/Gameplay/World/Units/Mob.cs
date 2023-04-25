@@ -14,9 +14,9 @@ namespace CosmicHunter
             speed = 1.0f;
         }
 
-        public virtual void Update(Vector2 offset, Hero hero)
+        public override void Update(Vector2 offset, Player enemy)
         {
-            AI(hero);   //use the mob AI
+            AI(enemy.hero);   //use the mob AI
 
             base.Update(offset);
         }

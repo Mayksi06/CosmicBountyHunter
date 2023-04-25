@@ -21,32 +21,38 @@ namespace CosmicHunter
 
         public UI()
         {
-            font = Globals.content.Load<SpriteFont>("Fonts\\Arial16");      //use given font
-            //healthBar = new DisplayBar(new Vector2(104, 16), 2, Color.Red); //give the healthbar size
-            healthBar = new DisplayBar(new Vector2(50, 8), 2, Color.Red);
+            font = Globals.content.Load<SpriteFont>("Fonts\\Arial16");          //use given font
+            //healthBar = new DisplayBar(new Vector2(104, 16), 2, Color.Red);   //give the healthbar size (big healthbar left corner)
+            healthBar = new DisplayBar(new Vector2(50, 8), 2, Color.Red);       //give the healthbar size (small healthbar under hero)
         }
 
         public void Update(World world)
         {
-            healthBar.Update(world.hero.health, world.hero.healthMax);  //fill the healthbar with the hero's health
+            healthBar.Update(world.user.hero.health, world.user.hero.healthMax);  //fill the healthbar with the hero's health
         }
 
         public void Draw(World world, Hero hero)
         {
-            string remainingEnemies = "Enemies Remaining: " + world.enemiesRemaining;   //the text
-            Vector2 stringDimensions = font.MeasureString(remainingEnemies);            //dimensions of the text
+            string remainingEnemies = "Enemies Remaining: " + GameGlobals.enemiesRemaining;     //the text for amount of enemies remaining
+            string score = "Score: " + GameGlobals.score;                                       //the text for the score
+            Vector2 stringDimensionsRemainingEnemies = font.MeasureString(remainingEnemies);    //dimensions of the text
+            Vector2 stringDimensionsScore = font.MeasureString(score);
 
             //draw the text centered in the middle lower side of the screen
-            Globals.spriteBatch.DrawString(font, remainingEnemies, new Vector2(Globals.screenWidth / 2 - stringDimensions.X / 2, Globals.screenHeight / 100 * 90), Color.Red);
+            Globals.spriteBatch.DrawString(font, remainingEnemies, new Vector2(Globals.screenWidth / 2 - stringDimensionsRemainingEnemies.X / 2, Globals.screenHeight / 100 * 90), Color.Red);
+
+            //draw the text at the left corner of the screen
+            Globals.spriteBatch.DrawString(font, score, new Vector2(Globals.screenWidth / 12 - stringDimensionsScore.X / 2, Globals.screenHeight / 100 * 90), Color.Red);
 
             //healthBar.Draw(new Vector2(Globals.screenWidth / 30, Globals.screenHeight / 100 * 91));   //put the healthbar at the bottom left of the screen
             healthBar.Draw(new Vector2(hero.position.X - 25, hero.position.Y + 40));                    //put the healthbar under the hero
 
-            if (world.hero.dead)
+            if (world.user.hero.dead)
             {
+                //if the hero dies, pause the game and show a text that says 'press enter to restart', when enter is pressed the game will restart
                 string restartText = "Press Enter to Restart!";
-                stringDimensions = font.MeasureString(restartText);
-                Globals.spriteBatch.DrawString(font, restartText, new Vector2(Globals.screenWidth / 2 - stringDimensions.X / 2, Globals.screenHeight / 100 * 40), Color.Red);
+                stringDimensionsRemainingEnemies = font.MeasureString(restartText);
+                Globals.spriteBatch.DrawString(font, restartText, new Vector2(Globals.screenWidth / 2 - stringDimensionsRemainingEnemies.X / 2, Globals.screenHeight / 100 * 40), Color.Red);
             }
         }
     }

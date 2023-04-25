@@ -14,9 +14,9 @@ namespace CosmicHunter
             speed = 2.0f;   //seeker enemy movement speed
         }
 
-        public override void Update(Vector2 offset, Hero hero)
+        public override void Update(Vector2 offset, Player enemy)
         {
-            base.Update(offset, hero);  //update the seeker enemey
+            base.Update(offset, enemy);  //update the seeker enemey
         }
 
         public override void Draw(Vector2 offset)
