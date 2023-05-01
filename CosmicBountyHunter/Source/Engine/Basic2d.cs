@@ -27,6 +27,24 @@ namespace CosmicHunter
 
         }
 
+        public virtual bool Hover(Vector2 offset)       //check if you are hovering
+        {
+            return HoverImg(offset);
+        }
+
+        public virtual bool HoverImg(Vector2 offset)    //check if you are hovering over an image
+        {
+            Vector2 mousePosition = new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y);
+
+            //greater than the top side or less than the bottom side
+            if (mousePosition.X >= (position.X + offset.X) - dimensions.X / 2 && mousePosition.X <= (position.X + offset.X) + dimensions.X / 2 && mousePosition.Y >= (position.Y + offset.Y) - dimensions.Y / 2 && mousePosition.Y <= (position.Y + offset.Y) + dimensions.Y / 2)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public virtual void Draw(Vector2 offset)
         {
             if (myModel != null)

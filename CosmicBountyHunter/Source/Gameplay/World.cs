@@ -34,7 +34,7 @@ namespace CosmicHunter
 
             offset = new Vector2(0, 0);
 
-            userInterface = new UI();
+            userInterface = new UI(resetWorld);
             globals = new GameGlobals();
         }
 
@@ -59,7 +59,7 @@ namespace CosmicHunter
 
             else
             {
-                if (Globals.keyboard.GetPress("Enter"))     //when the hero died, check if he pressed Enter
+                if (Globals.keyboard.GetPress("Enter") || userInterface.resetButton.isPressed == true)     //when the hero died, check if he pressed Enter
                 {
                     globals.ResetCounters();                //set enemies remaining and score back to original amount
                     resetWorld(null);                       //restart the world
