@@ -41,6 +41,16 @@ namespace CosmicHunter
                 position = new Vector2(position.X, position.Y + speed);
             }
 
+            if (Globals.keyboard.GetPress("V"))     //if V gets pressed the hero will get a movement speed boost
+            {
+                speed = 8.0f;
+            }
+
+            if (!Globals.keyboard.GetPress("V"))    //if V doesn't get pressed the hero will have the default movement speed
+            {
+                speed = 4.0f;
+            }
+
             //rotate the top of the hero towards the mouse cursor position
             rotation = Globals.RotateTowards(position, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y));
 

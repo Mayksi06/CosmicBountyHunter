@@ -12,7 +12,6 @@ namespace CosmicHunter
     {
         public bool isPressed, isHovered;   //see if button is being pressed or hovered over
         public string text;                 //button text
-        public Color hoverColor;            //color when hover is activated
         public SpriteFont font;             //text font
         public object info;                 //passing object when button clicked
         public PassObject buttonClicked;
@@ -28,10 +27,9 @@ namespace CosmicHunter
             }
 
             isPressed = false;
-            hoverColor = new Color(200, 230, 255);  //lightblue
         }
 
-        public virtual void Update(Vector2 offset)
+        public override void Update(Vector2 offset)
         {
             if (Hover(offset))                      //if hovered over button
             {
@@ -79,17 +77,6 @@ namespace CosmicHunter
 
         public override void Draw(Vector2 offset)
         {
-            Color tempColor = Color.White;
-
-            if (isPressed)
-            {
-                tempColor = Color.Gray;
-            }
-            else if (isHovered)
-            {
-                tempColor = hoverColor;
-            }
-
             base.Draw(offset);
 
             Vector2 stringDimensions = font.MeasureString(text);

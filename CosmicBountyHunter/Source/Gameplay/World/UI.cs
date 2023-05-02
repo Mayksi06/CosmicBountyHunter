@@ -17,6 +17,7 @@ namespace CosmicHunter
     {
         public Hero hero;
         public Button2d resetButton;
+        public Button2d playButton;
         public SpriteFont font;
         public DisplayBar healthBar;
 
@@ -25,6 +26,7 @@ namespace CosmicHunter
             font = Globals.content.Load<SpriteFont>("Fonts\\Arial16");          //use given font
 
             resetButton = new Button2d("2d\\Misc\\simpleButton", new Vector2(0, 0), new Vector2(96, 32), "Fonts\\Arial16", "Restart", reset, null);
+            playButton = new Button2d("2d\\Misc\\simpleButton", new Vector2(0, 0), new Vector2(120, 32), "Fonts\\Arial16", "Play again", reset, null);
 
             //healthBar = new DisplayBar(new Vector2(104, 16), 2, Color.Red);   //give the healthbar size (big healthbar left corner)
             healthBar = new DisplayBar(new Vector2(50, 8), 2, Color.Red);       //give the healthbar size (small healthbar under hero)
@@ -34,9 +36,14 @@ namespace CosmicHunter
         {
             healthBar.Update(world.user.hero.health, world.user.hero.healthMax);  //fill the healthbar with the hero's health
 
-            if (world.user.hero.dead)                                             //show the reset button when the hero dies
+            if (world.user.hero.dead)        //show the reset button when the hero dies
             {
                 resetButton.Update(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 50));
+            }
+
+            else if (GameGlobals.enemiesRemaining == 0)
+            {
+                playButton.Update(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 50));
             }
         }
 
@@ -64,6 +71,16 @@ namespace CosmicHunter
                 Globals.spriteBatch.DrawString(font, restartText, new Vector2(Globals.screenWidth / 2 - stringDimensionsRemainingEnemies.X / 2, Globals.screenHeight / 100 * 40), Color.Red);
 
                 resetButton.Draw(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 50)); // draw the button directly below the text
+            }
+
+            else if (GameGlobals.enemiesRemaining == 0)
+            {
+                //if the hero wins, pause the game and show a text that says 'press enter to restart', when enter is pressed the game will restart
+                string restartText = "You won! Press Enter or click the button to play again!";
+                stringDimensionsRemainingEnemies = font.MeasureString(restartText);
+                Globals.spriteBatch.DrawString(font, restartText, new Vector2(Globals.screenWidth / 2 - stringDimensionsRemainingEnemies.X / 2, Globals.screenHeight / 100 * 40), Color.Green);
+
+                playButton.Draw(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 50)); // draw the button directly below the text
             }
         }
     }

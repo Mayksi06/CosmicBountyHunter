@@ -55,6 +55,12 @@ namespace CosmicHunter
                         i--;
                     }
                 }
+                
+                if (Globals.keyboard.GetPress("Enter") || userInterface.playButton.isPressed == true)      //when the hero wins, check if he pressed Enter
+                {
+                    globals.ResetCounters();                //set enemies remaining and score back to original amount
+                    resetWorld(null);                       //restart the world
+                }
             }
 
             else

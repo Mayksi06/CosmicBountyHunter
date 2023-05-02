@@ -29,8 +29,9 @@ namespace CosmicHunter
 
             if (Globals.GetDistance(position, hero.position) < 15) //distance from mob before hero gets hit
             {
-                hero.GetHit(1);     //hero gets 1 damage when getting hit
-                dead = true;        //the mob dies when it hits the hero
+                hero.GetHit(1);         //hero gets 1 damage when getting hit
+                dead = true;            //the mob dies when it hits the hero
+                GameGlobals.score--;    //don't give the hero a point if the enemy dies by damaging the hero
             }
         }
 
