@@ -19,12 +19,13 @@ namespace CosmicHunter
 
         public List<Projectile2d> projectiles = new List<Projectile2d>();
 
-        public PassObject resetWorld;
+        public PassObject resetWorld, changeGameState;
         public GameGlobals globals;
 
-        public World(PassObject resetWorld)
+        public World(PassObject resetWorld, PassObject changeGameState)
         {
             this.resetWorld = resetWorld;
+            this.changeGameState = changeGameState;
 
             GameGlobals.PassProjectile = AddProjectile;
             GameGlobals.PassMob = AddMob;
@@ -70,6 +71,13 @@ namespace CosmicHunter
                     globals.ResetCounters();                //set enemies remaining and score back to original amount
                     resetWorld(null);                       //restart the world
                 }
+            }
+
+            if (Globals.keyboard.GetSinglePress("Back"))
+            {
+                globals.ResetCounters();
+                resetWorld(null);
+                changeGameState(0);                         //change it back when back button is pushed
             }
 
             userInterface.Update(this);

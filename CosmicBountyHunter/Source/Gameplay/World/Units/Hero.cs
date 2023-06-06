@@ -9,12 +9,11 @@ namespace CosmicHunter
 {
     public class Hero : Unit
     {
-        public float speed;
+        public new float speed;
         public Hero(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
         {
-            speed = 4.0f;   //change the hero movement speed
-
-            health = 4;
+            speed = 4.0f;           //change the hero movement speed
+            health = 4;             //the health points of the hero
             healthMax = health;
         }
 

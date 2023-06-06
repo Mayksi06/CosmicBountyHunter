@@ -13,11 +13,13 @@ namespace CosmicHunter
     {
         int playState;  //state of the game
         World world;
+        PassObject changeGameState;
 
-        public GamePlay()
+        public GamePlay(PassObject changeGameState)
         {
             playState = 0;
 
+            this.changeGameState = changeGameState;
             ResetWorld(null);
         }
 
@@ -31,7 +33,7 @@ namespace CosmicHunter
 
         public virtual void ResetWorld(object info)
         {
-            world = new World(ResetWorld);    //create a new world
+            world = new World(ResetWorld, changeGameState);    //create a new world
         }
 
         public virtual void Draw()

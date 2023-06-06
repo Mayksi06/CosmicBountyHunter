@@ -1,19 +1,20 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CosmicHunter
 {
     public class Main : Game
     {
         private GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
-
-        GamePlay gamePlay;
-
-        World world;
-
-        Basic2d cursor;
+        private GamePlay gamePlay;
+        private MainMenu mainMenu;
+        private Basic2d cursor;
 
         public Main()
         {
@@ -46,7 +47,8 @@ namespace CosmicHunter
             Globals.keyboard = new MdKeyboard();
             Globals.mouse = new MdMouseControl();
 
-            gamePlay = new GamePlay();
+            mainMenu = new MainMenu(ChangeGameState, ExitGame);
+            gamePlay = new GamePlay(ChangeGameState);
         }
 
         protected override void UnloadContent()
@@ -64,12 +66,30 @@ namespace CosmicHunter
             Globals.keyboard.Update();
             Globals.mouse.Update();
 
-            gamePlay.Update();
+            if (Globals.gameState == 0)
+            {
+                mainMenu.Update();
+            }
+            else if (Globals.gameState == 1)
+            {
+                gamePlay.Update();
+            }
 
             Globals.keyboard.UpdateOld();
             Globals.mouse.UpdateOld();
 
             base.Update(gameTime);
+        }
+
+        public virtual void ChangeGameState(object info)
+        {
+            Globals.gameState = Convert.ToInt32(info, Globals.culture);
+        }
+
+        public virtual void ExitGame(object info)
+        {
+            //sluit de game af, 0 betekent zonder errors afsluiten
+            System.Environment.Exit(0);
         }
 
         protected override void Draw(GameTime gameTime)
@@ -80,8 +100,14 @@ namespace CosmicHunter
             //spriteBatch has to open and close, everything that happens in the game should come between it
             Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
-            //draw the world
-            gamePlay.Draw();
+            if (Globals.gameState == 0)
+            {
+                mainMenu.Draw();    //draw the menu
+            }
+            else if (Globals.gameState == 1)
+            {
+                gamePlay.Draw();    //draw the world
+            }
 
             //cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0));  //position = top left of image
             cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), Color.White);   //position = center of image

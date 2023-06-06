@@ -25,8 +25,8 @@ namespace CosmicHunter
         {
             font = Globals.content.Load<SpriteFont>("Fonts\\Arial16");          //use given font
 
-            resetButton = new Button2d("2d\\Misc\\simpleButton", new Vector2(0, 0), new Vector2(96, 32), "Fonts\\Arial16", "Restart", reset, null);
-            playButton = new Button2d("2d\\Misc\\simpleButton", new Vector2(0, 0), new Vector2(120, 32), "Fonts\\Arial16", "Play again", reset, null);
+            resetButton = new Button2d("2d\\Misc\\button", new Vector2(0, 0), new Vector2(192, 48), "Fonts\\Arial16", "RESTART", reset, null);
+            playButton = new Button2d("2d\\Misc\\button", new Vector2(0, 0), new Vector2(192, 48), "Fonts\\Arial16", "PLAY AGAIN", reset, null);
 
             //healthBar = new DisplayBar(new Vector2(104, 16), 2, Color.Red);   //give the healthbar size (big healthbar left corner)
             healthBar = new DisplayBar(new Vector2(50, 8), 2, Color.Red);       //give the healthbar size (small healthbar under hero)

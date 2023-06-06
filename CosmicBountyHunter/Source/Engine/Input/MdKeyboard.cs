@@ -40,7 +40,7 @@ namespace CosmicHunter
             }
         }
 
-        public bool GetPress(string KEY)
+        public bool GetPress(string KEY)                    //loops through all keys and checks if given key is pressed
         {
             for (int i = 0; i < pressedKeys.Count; i++)     //search the key we're looking for
             {
@@ -55,8 +55,6 @@ namespace CosmicHunter
 
         public virtual void GetPressedKeys()
         {
-            bool found = false;
-
             pressedKeys.Clear();
 
             //go through all of the keys
@@ -64,6 +62,30 @@ namespace CosmicHunter
             {
                 pressedKeys.Add(new MdKey(newKeyboard.GetPressedKeys()[i].ToString(), 1));
             }
+        }
+
+        public bool GetSinglePress(string KEY)
+        {
+            for (int i = 0; i < pressedKeys.Count; i++)
+            {
+                bool isIn = false;
+
+                for (int j = 0; j < previousPressedKeys.Count; j++)
+                {
+                    if (pressedKeys[i].key == previousPressedKeys[j].key)
+                    {
+                        isIn = true;
+                        break;
+                    }
+                }
+
+                if (!isIn && (pressedKeys[i].key == KEY || pressedKeys[i].print == KEY))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

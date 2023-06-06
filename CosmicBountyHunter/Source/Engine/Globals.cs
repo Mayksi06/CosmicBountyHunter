@@ -17,7 +17,8 @@ namespace CosmicHunter
 
     public class Globals
     {
-        public static int screenHeight, screenWidth;
+        public static int screenHeight, screenWidth, gameState = 0;
+        public static System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
 
         public static ContentManager content;       //loads in images
         public static SpriteBatch spriteBatch;      //draw the images
