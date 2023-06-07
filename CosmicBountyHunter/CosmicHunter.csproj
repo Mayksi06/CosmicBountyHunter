@@ -12,15 +12,15 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Content\2d\mainShip.xnb" />
     <None Remove="Content\2d\Misc\button.xnb" />
-    <None Remove="Content\2d\ship.xnb" />
     <None Remove="Content\2d\UI\Backgrounds\menuBackground.xnb" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\2d\Misc\button.xnb">
+    <Content Include="Content\2d\mainShip.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\2d\ship.xnb">
+    <Content Include="Content\2d\Misc\button.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2d\UI\Backgrounds\menuBackground.xnb">
