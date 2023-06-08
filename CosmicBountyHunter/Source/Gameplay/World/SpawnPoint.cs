@@ -13,6 +13,7 @@ namespace CosmicHunter
         public bool dead;
         public float hitDistance;
         public MdTimer spawnTimer = new MdTimer(3000);  //enemy spawning speed
+        public int ownerId;
         public SpawnPoint(string path, Vector2 position, Vector2 dimensions) : base(path, position, dimensions)
         {
             dead = false;
@@ -42,7 +43,7 @@ namespace CosmicHunter
         public virtual void SpawnMob()
         {
             //spawn the mob from the spawnpoint position
-            GameGlobals.PassMob(new Seeker(new Vector2(position.X, position.Y)));
+            GameGlobals.PassMob(new Seeker(new Vector2(position.X, position.Y), ownerId));
         }
 
         public override void Draw(Vector2 offset)

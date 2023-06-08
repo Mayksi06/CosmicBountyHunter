@@ -5,18 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 
 namespace CosmicHunter
 {
     public class Player
     {
+        public int id;
         public Hero hero;
         public List<Unit> units = new List<Unit>();
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
-        public Player()
+        public Player(int id)
         {
-
+            this.id = id;
         }
 
         public virtual void Update(Player enemy, Vector2 offset)
@@ -47,7 +49,9 @@ namespace CosmicHunter
 
         public virtual void AddUnit(object info)
         {
-            units.Add((Unit)info);
+            Unit tempUnit = (Unit)info;
+            tempUnit.ownerId = id;
+            units.Add(tempUnit);
         }
 
         public virtual void ChangeRemainingEnemies(int amount)

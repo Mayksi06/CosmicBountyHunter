@@ -30,8 +30,8 @@ namespace CosmicHunter
             GameGlobals.PassProjectile = AddProjectile;
             GameGlobals.PassMob = AddMob;
 
-            user = new User();
-            aiPlayer = new AIPlayer();
+            user = new User(1);             //current player has ID 1
+            aiPlayer = new AIPlayer(2);     //AI player had ID 2
 
             offset = new Vector2(0, 0);
 
@@ -85,6 +85,17 @@ namespace CosmicHunter
 
         public virtual void AddMob(object info)
         {
+            Unit tempUnit = (Unit)info;
+
+            if (user.id == tempUnit.ownerId)
+            {
+                user.AddUnit(tempUnit);
+            }
+            else if (aiPlayer.id == tempUnit.ownerId)
+            {
+                aiPlayer.AddUnit(tempUnit);
+            }
+
             aiPlayer.AddUnit((Mob)info);
         }
 

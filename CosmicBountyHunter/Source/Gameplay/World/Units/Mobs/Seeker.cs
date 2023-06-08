@@ -9,7 +9,8 @@ namespace CosmicHunter
 {
     public class Seeker : Mob
     {
-        public Seeker(Vector2 position) : base("2d\\Units\\Mobs\\seeker", position, new Vector2(60, 60))        //seeker enemy image and size
+        public Seeker(Vector2 position, int ownerId) 
+            : base("2d\\Units\\Mobs\\seeker", position, new Vector2(60, 60), ownerId)        //seeker enemy image and size
         {
             speed = 2.0f;   //seeker enemy movement speed
         }

@@ -9,7 +9,8 @@ namespace CosmicHunter
 {
     public class AIPlayer : Player
     {
-        public AIPlayer() : base()
+        public AIPlayer(int id) 
+            : base(id)
         {
             //create 3 spawn points for enemies
             spawnPoints.Add(new SpawnPoint("2d\\Misc\\portal", new Vector2(50, 50), new Vector2(50, 50)));  //add a mob spawn point at the top left of the screen with given size
