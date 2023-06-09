@@ -61,7 +61,7 @@ namespace CosmicHunter
             Globals.spriteBatch.DrawString(font, score, new Vector2(Globals.screenWidth / 12 - stringDimensionsScore.X / 2, Globals.screenHeight / 100 * 90), Color.Red);
 
             //healthBar.Draw(new Vector2(Globals.screenWidth / 30, Globals.screenHeight / 100 * 91));   //put the healthbar at the bottom left of the screen
-            healthBar.Draw(new Vector2(hero.position.X - 25, hero.position.Y + 40));                    //put the healthbar under the hero
+            healthBar.Draw(new Vector2(hero.position.X - 25, hero.position.Y + 60));                    //put the healthbar under the hero
 
             if (world.user.hero.dead)
             {

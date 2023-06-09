@@ -9,8 +9,8 @@ namespace CosmicHunter
 {
     public class Mob : Unit
     {
-        public Mob(string path, Vector2 position, Vector2 dimensions, int ownerId) 
-            : base(path, position, dimensions, ownerId)
+        public Mob(string path, Vector2 position, Vector2 dimensions, Vector2 frames, int ownerId) 
+            : base(path, position, dimensions, frames, ownerId)
         {
             speed = 1.0f;
         }

@@ -12,12 +12,13 @@ namespace CosmicHunter
     public class Basic2d
     {
         public float rotation;
-        public Vector2 position, dimensions;    //X and Y coordinates
+        public Vector2 position, dimensions, frameSize;    //X and Y coordinates
         public Texture2D myModel;
         public Basic2d(string path, Vector2 position, Vector2 dimensions)
         {
-            this.position = position;
-            this.dimensions = dimensions;
+            this.position = new Vector2(position.X, position.Y);
+            this.dimensions = new Vector2(dimensions.X, dimensions.Y);
+            rotation = 0.0f;
 
             myModel = Globals.content.Load<Texture2D>(path);
         }

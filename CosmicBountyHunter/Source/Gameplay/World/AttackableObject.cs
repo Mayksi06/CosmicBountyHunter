@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace CosmicHunter
 {
-    public class AttackableObject : Basic2d
+    public class AttackableObject : Animated2d
     {
         public bool dead;           //check if the unit died
         public int ownerId;         //id of the owner of the object
         public float speed, hitDistance, health, healthMax;
-        public AttackableObject(string path, Vector2 position, Vector2 dimensions, int ownerId) : base(path, position, dimensions)
+        public AttackableObject(string path, Vector2 position, Vector2 dimensions, Vector2 frames, int ownerId) 
+            : base(path, position, dimensions, frames, Color.White)
         {
             this.ownerId = ownerId;
             dead = false;

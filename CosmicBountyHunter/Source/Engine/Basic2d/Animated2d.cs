@@ -38,7 +38,7 @@ namespace CosmicHunter
                 if (myModel != null)
                 {
                     //get the size of the frame
-                    //frameSize = new Vector2(myModel.Bounds.Width / frames.X, myModel.Bounds.Height / frames.Y);
+                    frameSize = new Vector2(myModel.Bounds.Width / frames.X, myModel.Bounds.Height / frames.Y);
                 }
             }
             get
@@ -47,21 +47,21 @@ namespace CosmicHunter
             }
         }
 
-        public override void Update(Vector2 OFFSET)
+        public override void Update(Vector2 offset)
         {
             if (frameAnimations && frameAnimationList != null && frameAnimationList.Count > currentAnimation)   //error check
             {
                 frameAnimationList[currentAnimation].Update();  //update the animation
             }
 
-            base.Update(OFFSET);    //potentially for tooltips and zoom, etc...
+            base.Update(offset);    //potentially for tooltips and zoom, etc...
         }
 
-        public virtual int GetAnimationFromName(string ANIMATIONNAME)
+        public virtual int GetAnimationFromName(string animationName)
         {
             for (int i = 0; i < frameAnimationList.Count; i++)
             {
-                if (frameAnimationList[i].name == ANIMATIONNAME)
+                if (frameAnimationList[i].name == animationName)
                 {
                     return i;
                 }
@@ -70,9 +70,9 @@ namespace CosmicHunter
             return -1;      //same as null
         }
 
-        public virtual void SetAnimationByName(string NAME)
+        public virtual void SetAnimationByName(string name)
         {
-            int tempAnimation = GetAnimationFromName(NAME);
+            int tempAnimation = GetAnimationFromName(name);
 
             if (tempAnimation != -1)
             {
@@ -90,7 +90,7 @@ namespace CosmicHunter
             if (frameAnimations && frameAnimationList[currentAnimation].Frames > 0)
             {
                 //Globals.spriteBatch.Draw(myModel, new Rectangle((int)(pos.X+screenShift.X), (int)(pos.Y+screenShift.Y), (int)dims.X, (int)dims.Y), new Rectangle((int)((currentFrame.X-1)*dims.X), (int)((currentFrame.Y-1)*dims.Y), (int)(currentFrame.X*dims.X), (int)(currentFrame.Y*dims.Y)), color, rot, new Vector2(myModel.Bounds.Width/2, myModel.Bounds.Height/2), new SpriteEffects(), 0);
-                //frameAnimationList[currentAnimation].Draw(myModel, dimensions, frameSize, screenShift, position, rotation, color, new SpriteEffects());
+                frameAnimationList[currentAnimation].Draw(myModel, dimensions, frameSize, screenShift, position, rotation, color, new SpriteEffects());
             }
             else
             {

@@ -15,53 +15,53 @@ namespace CosmicHunter
 {
     public class FrameAnimation
     {
-        public bool hasFired;                                                   //for using a function during an animation
-        public int frames, currentFrame, maxPasses, currentPass, fireFrame;     //number of frames in the animation, maxPasses = iterate animation
-        public string name;
-        public Vector2 sheet, startFrame, sheetFrame, spriteDims;               //size of the sheet
-        public MdTimer frameTimer;                                              //for how long a frame should show up
-        public PassObject FireAction;                                           //the function you want to use during an animation
+        public bool hasFired;                                                       //for using a function during an animation
+        public int totalFrames, currentFrame, maxPasses, currentPass, fireFrame;    //number of frames in the animation, maxPasses = iterate animation
+        public string name;                                                         //name of the animation
+        public Vector2 sheetDimensions, startFrame, sheetFrame, spriteDimensions;   //size of the sheet
+        public MdTimer frameTimer;                                                  //for how long a frame should show up
+        public PassObject fireAction;                                               //the function you want to use during an animation
 
-        public FrameAnimation(Vector2 SpriteDims, Vector2 sheetDims, Vector2 start, int totalframes, int timePerFrame, int MAXPASSES, string NAME = "")
+        public FrameAnimation(Vector2 spriteDimensions, Vector2 sheetDimensions, Vector2 startFrame, int totalFrames, int timePerFrame, int maxPasses, string name = "")
         {
-            spriteDims = SpriteDims;
-            sheet = sheetDims;
-            startFrame = start;
-            sheetFrame = new Vector2(start.X, start.Y);
-            frames = totalframes;
+            this.spriteDimensions = spriteDimensions;
+            this.sheetDimensions = sheetDimensions;
+            this.startFrame = startFrame;
+            sheetFrame = new Vector2(startFrame.X, startFrame.Y);
+            this.totalFrames = totalFrames;
             currentFrame = 0;
             frameTimer = new MdTimer(timePerFrame);
-            maxPasses = MAXPASSES;
+            this.maxPasses = maxPasses;
             currentPass = 0;
-            name = NAME;
-            FireAction = null;
+            this.name = name;
+            fireAction = null;
             hasFired = false;
             fireFrame = 0;
         }
 
         //same as the constructor above but with FireAction
-        public FrameAnimation(Vector2 SpriteDims, Vector2 sheetDims, Vector2 start, int totalframes, int timePerFrame, int MAXPASSES, int FIREFRAME, PassObject FIREACTION, string NAME = "")
+        public FrameAnimation(Vector2 spriteDimensions, Vector2 sheetDimensions, Vector2 startFrame, int totalFrames, int timePerFrame, int maxPasses, int fireFrame, PassObject fireAction, string name = "")
         {
-            spriteDims = SpriteDims;
-            sheet = sheetDims;
-            startFrame = start;
-            sheetFrame = new Vector2(start.X, start.Y);
-            frames = totalframes;
+            this.spriteDimensions = spriteDimensions;
+            this.sheetDimensions = sheetDimensions;
+            this.startFrame = startFrame;
+            sheetFrame = new Vector2(startFrame.X, startFrame.Y);
+            this.totalFrames = totalFrames;
             currentFrame = 0;
             frameTimer = new MdTimer(timePerFrame);
-            maxPasses = MAXPASSES;
+            this.maxPasses = maxPasses;
             currentPass = 0;
-            name = NAME;
-            FireAction = FIREACTION;
+            this.name = name;
+            this.fireAction = fireAction;
             hasFired = false;
-            fireFrame = FIREFRAME;
+            this.fireFrame = fireFrame;
         }
 
         public int Frames
         {
             get 
             { 
-                return frames; 
+                return totalFrames; 
             }
         }
 
@@ -92,13 +92,13 @@ namespace CosmicHunter
         public void Update()
         {
             //backup this function in case you mess up
-            if (frames > 1)
+            if (totalFrames > 1)
             {
                 frameTimer.UpdateTimer();
                 if (frameTimer.Test() && (maxPasses == 0 || maxPasses > currentPass))
                 {
                     currentFrame++;
-                    if (currentFrame >= frames)
+                    if (currentFrame >= totalFrames)
                     {
                         currentPass++;      //we completed an animation so we add a pass
                     }
@@ -107,12 +107,12 @@ namespace CosmicHunter
                         sheetFrame.X += 1;
 
                         //count the frames as a list start from 0, 1, 2, 3, (4 doesn't exist?) -> start again from 0
-                        if (sheetFrame.X >= sheet.X)
+                        if (sheetFrame.X >= sheetDimensions.X)
                         {
                             sheetFrame.X = 0;
                             sheetFrame.Y += 1;
                         }
-                        if (currentFrame >= frames)
+                        if (currentFrame >= totalFrames)
                         {
                             currentFrame = 0;
                             hasFired = false;
@@ -123,9 +123,9 @@ namespace CosmicHunter
                 }
             }
 
-            if (FireAction != null && fireFrame == currentFrame && !hasFired)   //fire of the timer
+            if (fireAction != null && fireFrame == currentFrame && !hasFired)   //fire of the timer
             {
-                FireAction(null);
+                fireAction(null);
                 hasFired = true;
             }
         }
@@ -141,7 +141,7 @@ namespace CosmicHunter
         public bool IsAtEnd()
         {
             //check if the animation is at the end of the frames
-            if (currentFrame + 1 >= frames)
+            if (currentFrame + 1 >= totalFrames)
             {
                 return true;
             }
@@ -150,6 +150,7 @@ namespace CosmicHunter
 
         public void Draw(Texture2D myModel, Vector2 dims, Vector2 imageDims, Vector2 screenShift, Vector2 pos, float ROT, Color color, SpriteEffects spriteEffect)
         {
+            //make sure that we are using the spritesheet information properly
             Globals.spriteBatch.Draw(myModel, new Rectangle((int)(pos.X + screenShift.X), (int)(pos.Y + screenShift.Y), (int)Math.Ceiling(dims.X), (int)Math.Ceiling(dims.Y)), new Rectangle((int)(sheetFrame.X * imageDims.X), (int)(sheetFrame.Y * imageDims.Y), (int)imageDims.X, (int)imageDims.Y), color, ROT, imageDims / 2, spriteEffect, 0);
         }
     }
