@@ -13,6 +13,11 @@ namespace CosmicHunter
             : base("2d\\Units\\Mobs\\seeker", position, new Vector2(60, 60), frames, ownerId)        //seeker enemy image and size
         {
             speed = 2.0f;   //seeker enemy movement speed
+
+            if (MainMenu.hardmode == true)
+            {
+                speed = 8.0f;
+            }
         }
 
         public override void Update(Vector2 offset, Player enemy)

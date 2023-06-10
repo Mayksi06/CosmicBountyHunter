@@ -14,6 +14,7 @@ namespace CosmicHunter
         public Basic2d background;
         public PassObject playClick, exitClick;
         public List<Button2d> buttons = new List<Button2d>();
+        public static bool hardmode;
 
         public MainMenu(PassObject playClick, PassObject exitClick)
         {
@@ -24,8 +25,9 @@ namespace CosmicHunter
             background = new Basic2d("2d\\UI\\Backgrounds\\menuBackground", new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2), 
                 new Vector2(Globals.screenWidth, Globals.screenHeight));
 
-            buttons.Add(new Button2d("2d\\Misc\\button", new Vector2(0, 0), new Vector2(144, 48), "Fonts\\Arial16", "PLAY", playClick, 1));   //play game
-            buttons.Add(new Button2d("2d\\Misc\\button", new Vector2(0, 0), new Vector2(144, 48), "Fonts\\Arial16", "EXIT", exitClick, null));//stop game
+            buttons.Add(new Button2d("2d\\Misc\\button", new Vector2(0, 0), new Vector2(144, 48), "Fonts\\Arial16", "EASY", playClick, 1));     //play game on easy difficulty
+            buttons.Add(new Button2d("2d\\Misc\\button", new Vector2(0, 0), new Vector2(144, 48), "Fonts\\Arial16", "HARD", playClick, 1));     //play game on hard difficulty
+            buttons.Add(new Button2d("2d\\Misc\\button", new Vector2(0, 0), new Vector2(144, 48), "Fonts\\Arial16", "EXIT", exitClick, null));  //exit the game
         }
 
         public virtual void Update()
@@ -34,6 +36,15 @@ namespace CosmicHunter
             {
                 //X and Y position of the button, 45 is size of button, for every button it goes down
                 buttons[i].Update(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 45 * i));
+            }
+
+            if (buttons[1].isPressed)
+            {
+                hardmode = true;
+            }
+            else if (buttons[0].isPressed)
+            {
+                hardmode = false;
             }
         }
 
