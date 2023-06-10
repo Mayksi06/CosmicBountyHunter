@@ -15,6 +15,8 @@ namespace CosmicHunter
         private GamePlay gamePlay;
         private MainMenu mainMenu;
         private Basic2d cursor;
+        private Texture2D backgroundTexture;
+        private Rectangle backgroundRectangle;
 
         public Main()
         {
@@ -25,8 +27,8 @@ namespace CosmicHunter
         protected override void Initialize()
         {
             //screen size
-            Globals.screenWidth = 900; //900-1600-1920
-            Globals.screenHeight = 500; //500-900-1080
+            Globals.screenWidth = 1600; //900-1600-1920
+            Globals.screenHeight = 900; //500-900-1080
 
             graphics.PreferredBackBufferWidth = Globals.screenWidth;
             graphics.PreferredBackBufferHeight = Globals.screenHeight;
@@ -38,8 +40,12 @@ namespace CosmicHunter
 
         protected override void LoadContent()
         {
-            Globals.content = this.Content;
+            Globals.content = Content;
             Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            //set the background image and a rectangle that matches the screensize
+            backgroundTexture = Content.Load<Texture2D>("2d\\UI\\Backgrounds\\background");
+            backgroundRectangle = new Rectangle(0, 0, Globals.screenWidth, Globals.screenHeight);
 
             //load cursor image, set cursor position and size
             cursor = new Basic2d("2d\\Misc\\cursor", new Vector2(0, 0), new Vector2(35, 35)); //28, 28
@@ -94,11 +100,9 @@ namespace CosmicHunter
 
         protected override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.CornflowerBlue);
-            GraphicsDevice.Clear(Color.Black);
-
             //spriteBatch has to open and close, everything that happens in the game should come between it
             Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+            Globals.spriteBatch.Draw(backgroundTexture, backgroundRectangle, Color.White);
 
             if (Globals.gameState == 0)
             {
@@ -110,7 +114,7 @@ namespace CosmicHunter
             }
 
             //cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), new Vector2(0, 0));  //position = top left of image
-            cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), Color.White);   //position = center of image
+            cursor.Draw(new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y), Color.White);   //position cursor = center of image
             Globals.spriteBatch.End();
 
             base.Draw(gameTime);
