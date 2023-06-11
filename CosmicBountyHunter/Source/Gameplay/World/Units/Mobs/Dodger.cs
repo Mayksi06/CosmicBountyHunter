@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace CosmicHunter
 {
-    public class Sharpshooter : Mob
+    public class Dodger : Mob
     {
-        public Sharpshooter(Vector2 position, Vector2 frames, int ownerId)
-            : base("2d\\Units\\Mobs\\sharpshooter", position, new Vector2(60, 60), frames, ownerId)        //seeker enemy image and size
+        public Dodger(Vector2 position, Vector2 frames, int ownerId)
+            : base("2d\\Units\\Mobs\\dodger", position, new Vector2(60, 60), frames, ownerId)        //seeker enemy image and size
         {
-            speed = 2.0f;   //seeker enemy movement speed
-            health = 2;
+            speed = 1.0f;   //seeker enemy movement speed
+            health = 5;
 
             attackRange = 400;
 

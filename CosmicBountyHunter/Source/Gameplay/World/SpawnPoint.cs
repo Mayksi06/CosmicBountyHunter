@@ -45,6 +45,7 @@ namespace CosmicHunter
             //spawn the mob from the spawnpoint position
             GameGlobals.PassMob(new Seeker(new Vector2(position.X, position.Y), new Vector2(1, 1), ownerId));
             GameGlobals.PassMob(new Sharpshooter(new Vector2(position.X, position.Y), new Vector2(1, 1), ownerId));
+            GameGlobals.PassMob(new Dodger(new Vector2(position.X, position.Y), new Vector2(1, 1), ownerId));
         }
 
         public override void Draw(Vector2 offset)
