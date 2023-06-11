@@ -9,9 +9,17 @@ namespace CosmicHunter
 {
     public class Mob : Unit
     {
+        public bool isAttacking;
+        public float attackRange;
+        public MdTimer rePathTimer = new MdTimer(200), attackTimer = new MdTimer(350);
+
         public Mob(string path, Vector2 position, Vector2 dimensions, Vector2 frames, int ownerId) 
             : base(path, position, dimensions, frames, ownerId)
         {
+            attackRange = 50;
+
+            isAttacking = false;
+
             speed = 1.0f;
         }
 

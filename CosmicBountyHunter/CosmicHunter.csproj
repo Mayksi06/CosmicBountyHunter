@@ -17,6 +17,7 @@
     <None Remove="Content\2d\UI\Backgrounds\background.xnb" />
     <None Remove="Content\2d\UI\Backgrounds\menuBackground.xnb" />
     <None Remove="Content\2d\Units\mainShipSheet.xnb" />
+    <None Remove="Content\2d\Units\Mobs\sharpshooter.xnb" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\2d\Misc\button.xnb">
@@ -32,6 +33,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2d\Units\mainShipSheet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Units\Mobs\sharpshooter.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
