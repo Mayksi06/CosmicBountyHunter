@@ -39,6 +39,11 @@ namespace CosmicHunter
             globals = new GameGlobals();
         }
 
+        public User GetUser(World world)
+        {
+            return world.user;
+        }
+
         public virtual void Update()
         {
             if (!user.hero.dead)                                //keep updating the game while the hero is still alive, game will pause when the hero dies

@@ -19,6 +19,7 @@ namespace CosmicHunter
         private Rectangle backgroundRectangle;
         private Asteroid asteroid;
         private Texture2D asteroidTexture;
+        private Hero hero;
 
         public Main()
         {
@@ -63,6 +64,8 @@ namespace CosmicHunter
 
             mainMenu = new MainMenu(ChangeGameState, ExitGame);
             gamePlay = new GamePlay(ChangeGameState);
+
+            hero = gamePlay.GetUser().GetHero();
         }
 
         protected override void UnloadContent()
@@ -88,12 +91,7 @@ namespace CosmicHunter
             {
                 gamePlay.Update();
 
-                /*
-                foreach (var unit in ???)
-                {
-                    CollisionManager.PreventCollision(unit, asteroid);
-                }
-                */
+                CollisionManager.PreventCollision(hero, asteroid);
             }
 
             Globals.keyboard.UpdateOld();

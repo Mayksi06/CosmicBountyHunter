@@ -23,6 +23,11 @@ namespace CosmicHunter
             ResetWorld(null);
         }
 
+        public User GetUser()
+        {
+            return world.GetUser(world);
+        }
+
         public virtual void Update()
         {
             if (playState == 0)

@@ -16,6 +16,11 @@ namespace CosmicHunter
             hero = new Hero("2d\\Units\\mainShipSheet", new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 100 * 70), new Vector2(100, 100), new Vector2(4, 1), id); //hero image, spawn position and size
         }
 
+        public Hero GetHero()
+        {
+            return hero;
+        }
+
         public override void Update(Player enemy, Vector2 offset)
         {
             base.Update(enemy, offset);
