@@ -13,6 +13,7 @@ namespace CosmicHunter
             : base("2d\\Units\\Mobs\\sharpshooter", position, new Vector2(60, 60), frames, ownerId)        //seeker enemy image and size
         {
             speed = 2.0f;   //seeker enemy movement speed
+            health = 3;
 
             attackRange = 400;
 
@@ -32,7 +33,7 @@ namespace CosmicHunter
 
                 if (attackTimer.Test())
                 {
-                    GameGlobals.PassProjectile(new Laser(new Vector2(position.X, position.Y), this, new Vector2(hero.position.X, hero.position.Y)));
+                    //GameGlobals.PassProjectile(new Laser(new Vector2(position.X, position.Y), this, new Vector2(hero.position.X, hero.position.Y)));
 
                     attackTimer.ResetToZero();
                     isAttacking = false;

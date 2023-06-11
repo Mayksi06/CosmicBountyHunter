@@ -9,14 +9,14 @@ namespace CosmicHunter
 {
     public class GameGlobals
     {
-        public static int enemiesRemaining = 15;            //number of enemies remaining
+        public static int enemiesRemaining = 30;            //number of enemies remaining
         public static int score = 0;                        //the total score
 
         public static PassObject PassProjectile, PassMob;   //any object can create a projectile
 
         public void ResetCounters()
         {
-            enemiesRemaining = 15;
+            enemiesRemaining = 30;
             score = 0;
         }
     }
