@@ -9,42 +9,96 @@ namespace CosmicHunter
 {
     public class Dodger : Mob
     {
-        private int zigZagDirection = 1;
+        private bool isMoving = true;
+        private float zigzagDistance = 50f;
+        private float zigzagSpeed = 4f;
+        private bool isMovingRight = true;
+        private MdTimer zigzagTimer = new MdTimer(1000); // Zigzag direction change timer
+        private Vector2 heroPosition;
 
         public Dodger(Vector2 position, Vector2 frames, int ownerId)
-            : base("2d\\Units\\Mobs\\dodger", position, new Vector2(60, 60), frames, ownerId)        //seeker enemy image and size
+            : base("2d\\Units\\Mobs\\dodger", position, new Vector2(60, 60), frames, ownerId)
         {
-            speed = 1.0f;   //seeker enemy movement speed
-            health = 5;
+            speed = 3.0f;
+            attackRange = 100;
 
-            if (MainMenu.hardmode == true)
+            if (MainMenu.hardmode)
             {
-                speed = 8.0f;
+                speed = 6.0f;
             }
         }
 
         public override void AI(Hero hero)
         {
-            if (hero != null)
+            if (hero != null && (Globals.GetDistance(position, hero.position) < attackRange * .9f || isAttacking))
             {
-                Vector2 direction = Vector2.Normalize(hero.position - position);
+                if (!isMoving)
+                {
+                    isAttacking = true;
+                    attackTimer.UpdateTimer();
 
-                direction.X += zigZagDirection * 1.5f;
+                    if (attackTimer.Test())
+                    {
+                        // Perform the attack action
+                        // ...
 
-                position += direction * speed;
+                        attackTimer.ResetToZero();
+                        isAttacking = false;
+                    }
+                }
+            }
+            else
+            {
+                isMoving = true;
+
+                // Store the hero's position
+                heroPosition = hero.position;
+
+                // Perform the zigzag movement
+                ZigZagMovement();
+
+                base.AI(hero);
+            }
+        }
+
+        private void ZigZagMovement()
+        {
+            zigzagTimer.UpdateTimer();
+
+            if (zigzagTimer.Test())
+            {
+                isMovingRight = !isMovingRight; // Change zigzag direction
+                zigzagTimer.Reset();
             }
 
-            base.AI(hero);
+            if (isMovingRight)
+            {
+                position.X += zigzagSpeed;
+
+                if (position.X >= heroPosition.X + zigzagDistance)
+                {
+                    position.X = heroPosition.X + zigzagDistance;
+                }
+            }
+            else
+            {
+                position.X -= zigzagSpeed;
+
+                if (position.X <= heroPosition.X - zigzagDistance)
+                {
+                    position.X = heroPosition.X - zigzagDistance;
+                }
+            }
         }
 
         public override void Update(Vector2 offset, Player enemy)
         {
-            base.Update(offset, enemy);  //update the seeker enemey
+            base.Update(offset, enemy);
         }
 
         public override void Draw(Vector2 offset)
         {
-            base.Draw(offset);  //draw the seeker enemy
+            base.Draw(offset);
         }
     }
 }
