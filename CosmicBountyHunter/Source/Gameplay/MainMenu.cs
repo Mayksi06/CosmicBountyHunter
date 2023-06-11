@@ -38,13 +38,13 @@ namespace CosmicHunter
                 buttons[i].Update(new Vector2(Globals.screenWidth / 2, Globals.screenHeight / 2 + 45 * i));
             }
 
-            if (buttons[1].isPressed)
-            {
-                hardmode = true;
-            }
-            else if (buttons[0].isPressed)
+            if (buttons[0].isPressed)
             {
                 hardmode = false;
+            }
+            else if (buttons[1].isPressed)
+            {
+                hardmode = true;
             }
         }
 

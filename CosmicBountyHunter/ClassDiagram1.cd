@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CosmicHunter.FrameAnimation" Collapsed="true">
+    <Position X="17.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASggRAAwYAABgAAAAgAAICAAAgEAAEIAAAAAAAAIAE=</HashCode>
+      <FileName>Source\Engine\Basic2d\Animated2d\FrameAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Animated2d" Collapsed="true">
+    <Position X="9.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAQAMAAAACAAAAAIQAgAAE=</HashCode>
+      <FileName>Source\Engine\Basic2d\Animated2d.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.AttackableObject" Collapsed="true">
+    <Position X="9.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAAAAAgAAAAAAAAAAACAAAQAIAAAAAAACIAg=</HashCode>
+      <FileName>Source\Gameplay\World\AttackableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Button2d" Collapsed="true">
+    <Position X="4.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAEBgAAAAAAAAAAQAAAAAAIQAACCAAAAAA=</HashCode>
+      <FileName>Source\Engine\Basic2d\Button2d.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.MdKey" Collapsed="true">
+    <Position X="17.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAAAAAAAAAAAAEAAAAAAEAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Input\Keyboard\MdKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.MdKeyboard" Collapsed="true">
+    <Position X="15.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAAAAAAgAAAAAAAIAAAABCAEAAAAAAAAAAkAA=</HashCode>
+      <FileName>Source\Engine\Input\MdKeyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.MdMouseControl" Collapsed="true">
+    <Position X="15.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QJQAAAgAAAAAASA4QAAAAAQAQAiCAAUAAAIIDIAcAQA=</HashCode>
+      <FileName>Source\Engine\Input\MdMouseControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.DisplayBar" Collapsed="true">
+    <Position X="17.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAAQAAAgAAAAAAAABAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Output\DisplayBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Basic2d" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAABAgAAAgCAIAAAAgAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Basic2d.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Globals" Collapsed="true">
+    <Position X="14" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEBIAABAAAgAAAABAEAAAAAAAgAAAgAgQAAAAAA=</HashCode>
+      <FileName>Source\Engine\Globals.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.MdTimer" Collapsed="true">
+    <Position X="15.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAEAAAAAABAAAAAAAAAAAAAIAAAACBAAACAAMBAA=</HashCode>
+      <FileName>Source\Engine\MdTimer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.AIPlayer" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Players\AIPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.User" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Players\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Bullet" Collapsed="true">
+    <Position X="2" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Projectiles\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Seeker" Collapsed="true">
+    <Position X="11.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\Mobs\Seeker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Hero" Collapsed="true">
+    <Position X="8.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\Hero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Mob" Collapsed="true">
+    <Position X="11.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Units\Mob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Player" Collapsed="true">
+    <Position X="1.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAEAAAgAAAAAAAAAAAQASAAAAAAAAACAAAgA=</HashCode>
+      <FileName>Source\Gameplay\World\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Projectile2d" Collapsed="true">
+    <Position X="2" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAQAAAogAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Projectile2d.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.SpawnPoint" Collapsed="true">
+    <Position X="7.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAAAAAgAAAAAAAAAAICAAAAAIIAEAAAACAAA=</HashCode>
+      <FileName>Source\Gameplay\World\SpawnPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.UI" Collapsed="true">
+    <Position X="14" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAEAAAgAAAAAAAAAAAAAAAAYAAAAAAAAQAAA=</HashCode>
+      <FileName>Source\Gameplay\World\UI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Unit" Collapsed="true">
+    <Position X="9.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Gameplay\World\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.MainMenu" Collapsed="true">
+    <Position X="14" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAoAAIAAAAAAAAAAAAAQAAAAAAAAAJAA=</HashCode>
+      <FileName>Source\Gameplay\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.World" Collapsed="true">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAJAEAAAAAgABAAAAAAAAAAAAAAAIAABCAAAAAQA=</HashCode>
+      <FileName>Source\Gameplay\World.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.GamePlay" Collapsed="true">
+    <Position X="17.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAEIAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Source\GamePlay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.GameGlobals" Collapsed="true">
+    <Position X="15.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAACAAAAAwAAAAAAAAAAABAA=</HashCode>
+      <FileName>GameGlobals.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CosmicHunter.Main" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAEAAAAAAAEwECAAAAAAAAAAAAEBgAAAAAAAQAAAQ=</HashCode>
+      <FileName>Main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.Xna.Framework.Game" Collapsed="true">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Delegate Name="CosmicHunter.PassObject" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Globals.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="CosmicHunter.PassObjectAndReturn" Collapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Engine\Globals.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

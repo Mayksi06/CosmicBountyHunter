@@ -26,11 +26,6 @@ namespace CosmicHunter
             hitDistance = 35.0f;    //hitbox of the unit
         }
 
-        public virtual void Update(Vector2 offset, Player enemy)
-        {
-            base.Update(offset);    //update the unit
-        }
-
         public virtual void GetHit(float damage)
         {
             health -= damage;
@@ -39,6 +34,26 @@ namespace CosmicHunter
             {
                 dead = true;        //the unit dies if it gets hit
             }
+        }
+
+        public Rectangle Bounds
+        {
+            get
+            {
+                return new Rectangle((int)position.X, (int)position.Y, (int)dimensions.X, (int)dimensions.Y);
+            }
+        }
+
+        public Vector2 Velocity
+        {
+            get;
+            set;
+        }
+
+        public virtual void Update(Vector2 offset, Player enemy)
+        {
+            position += Velocity * speed;
+            base.Update(offset);    //update the unit
         }
 
         public override void Draw(Vector2 offset)
