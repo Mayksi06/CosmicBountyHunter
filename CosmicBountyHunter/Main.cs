@@ -17,6 +17,8 @@ namespace CosmicHunter
         private Basic2d cursor;
         private Texture2D backgroundTexture;
         private Rectangle backgroundRectangle;
+        private Asteroid asteroid;
+        private Texture2D asteroidTexture;
 
         public Main()
         {
@@ -46,6 +48,12 @@ namespace CosmicHunter
             //set the background image and a rectangle that matches the screensize
             backgroundTexture = Content.Load<Texture2D>("2d\\UI\\Backgrounds\\background");
             backgroundRectangle = new Rectangle(0, 0, Globals.screenWidth, Globals.screenHeight);
+
+            //set the asteroid image and initialize it
+            asteroidTexture = Content.Load<Texture2D>("2d\\Misc\\planet");
+            Vector2 asteroidPosition = new Vector2(150, 150);
+            int asteroidSize = 100;
+            asteroid = new Asteroid(asteroidTexture, asteroidPosition, asteroidSize);
 
             //load cursor image, set cursor position and size
             cursor = new Basic2d("2d\\Misc\\cursor", new Vector2(0, 0), new Vector2(35, 35)); //28, 28
@@ -79,6 +87,13 @@ namespace CosmicHunter
             else if (Globals.gameState == 1)
             {
                 gamePlay.Update();
+
+                /*
+                foreach (var unit in ???)
+                {
+                    CollisionManager.PreventCollision(unit, asteroid);
+                }
+                */
             }
 
             Globals.keyboard.UpdateOld();
@@ -110,6 +125,7 @@ namespace CosmicHunter
             }
             else if (Globals.gameState == 1)
             {
+                asteroid.Draw(Globals.spriteBatch);
                 gamePlay.Draw();    //draw the world
             }
 
