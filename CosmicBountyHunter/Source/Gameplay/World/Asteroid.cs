@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
+using SharpDX.MediaFoundation;
 
 namespace CosmicHunter
 {
@@ -17,7 +18,8 @@ namespace CosmicHunter
         public Asteroid(Texture2D texture, Vector2 position, int size)
         {
             this.texture = texture;
-            bounds = new Rectangle((int)position.X, (int)position.Y, size, size);
+            int offset = (int)((size - texture.Width) / 2);
+            bounds = new Rectangle((int)position.X + offset, (int)position.Y + offset, texture.Width, texture.Height);
         }
 
         public Rectangle Bounds

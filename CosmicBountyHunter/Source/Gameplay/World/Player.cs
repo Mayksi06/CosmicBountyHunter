@@ -25,7 +25,10 @@ namespace CosmicHunter
         {
             if (hero != null)                               //check if hero is initialized
             {
-                hero.Update(offset);
+                if (!CollisionManager.collisionDetected)
+                {
+                    hero.Update(offset);
+                }
             }
 
             for (int i = 0; i < spawnPoints.Count; i++)     //create the spawnpoints first
