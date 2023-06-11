@@ -9,13 +9,13 @@ namespace CosmicHunter
 {
     public class Dodger : Mob
     {
+        private int zigZagDirection = 1;
+
         public Dodger(Vector2 position, Vector2 frames, int ownerId)
             : base("2d\\Units\\Mobs\\dodger", position, new Vector2(60, 60), frames, ownerId)        //seeker enemy image and size
         {
             speed = 1.0f;   //seeker enemy movement speed
             health = 5;
-
-            attackRange = 400;
 
             if (MainMenu.hardmode == true)
             {
@@ -25,24 +25,16 @@ namespace CosmicHunter
 
         public override void AI(Hero hero)
         {
-            if (hero != null && (Globals.GetDistance(position, hero.position) < attackRange * .9f || isAttacking))
+            if (hero != null)
             {
-                isAttacking = true;
+                Vector2 direction = Vector2.Normalize(hero.position - position);
 
-                attackTimer.UpdateTimer();
+                direction.X += zigZagDirection * 1.5f;
 
-                if (attackTimer.Test())
-                {
-                    //GameGlobals.PassProjectile(new Laser(new Vector2(position.X, position.Y), this, new Vector2(hero.position.X, hero.position.Y)));
-
-                    attackTimer.ResetToZero();
-                    isAttacking = false;
-                }
+                position += direction * speed;
             }
-            else
-            {
-                base.AI(hero);
-            }
+
+            base.AI(hero);
         }
 
         public override void Update(Vector2 offset, Player enemy)
