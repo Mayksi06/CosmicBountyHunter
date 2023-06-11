@@ -14,12 +14,21 @@ namespace CosmicHunter
         public static bool collisionDetected;
         public static void PreventCollision(AttackableObject object1, Asteroid asteroid)
         {
-            if (object1.Bounds.Intersects(asteroid.Bounds))
+            Rectangle heroBounds = object1.Bounds;
+            Rectangle asteroidBounds = asteroid.Bounds;
+
+            // Adjust the size of the hero's collision rectangle
+            int collisionWidth = 20; // Adjust the width as needed
+            int collisionHeight = 20; // Adjust the height as needed
+            heroBounds.Width = collisionWidth;
+            heroBounds.Height = collisionHeight;
+
+            if (heroBounds.Intersects(asteroidBounds))
             {
                 // Resolve collision between the object and asteroid
                 // Adjust the object's position or handle the collision accordingly
                 // Example: Stop the object's movement
-                Vector2 separationVector = GetSeparationVector(object1.Bounds, asteroid.Bounds);
+                Vector2 separationVector = GetSeparationVector(heroBounds, asteroidBounds);
                 object1.position += separationVector;
                 object1.Velocity = Vector2.Zero;
                 collisionDetected = true;

@@ -15,11 +15,10 @@ namespace CosmicHunter
         private Texture2D texture;
         private Rectangle bounds;
 
-        public Asteroid(Texture2D texture, Vector2 position, int size)
+        public Asteroid(Texture2D texture, Vector2 position)
         {
             this.texture = texture;
-            int offset = (int)((size - texture.Width) / 2);
-            bounds = new Rectangle((int)position.X + offset, (int)position.Y + offset, texture.Width, texture.Height);
+            bounds = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
         }
 
         public Rectangle Bounds

@@ -53,8 +53,7 @@ namespace CosmicHunter
             //set the asteroid image and initialize it
             asteroidTexture = Content.Load<Texture2D>("2d\\Misc\\planet");
             Vector2 asteroidPosition = new Vector2(150, 150);
-            int asteroidSize = 100;
-            asteroid = new Asteroid(asteroidTexture, asteroidPosition, asteroidSize);
+            asteroid = new Asteroid(asteroidTexture, asteroidPosition);
 
             //load cursor image, set cursor position and size
             cursor = new Basic2d("2d\\Misc\\cursor", new Vector2(0, 0), new Vector2(35, 35)); //28, 28
