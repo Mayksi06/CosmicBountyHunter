@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CosmicHunter
 {
-    public class DisplayBar
+    public class DisplayBar : IUpdatableDisplay
     {
         public int border;
         public Basic2d bar, barBKG;

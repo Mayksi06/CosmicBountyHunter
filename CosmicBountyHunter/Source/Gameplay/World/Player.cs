@@ -9,7 +9,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace CosmicHunter
 {
-    public class Player
+    public class Player : IUpdatableAttackable
     {
         public int id;
         public Hero hero;
@@ -21,7 +21,7 @@ namespace CosmicHunter
             this.id = id;
         }
 
-        public virtual void Update(Player enemy, Vector2 offset)
+        public virtual void Update(Vector2 offset, Player enemy)
         {
             if (hero != null)                               //check if hero is initialized
             {

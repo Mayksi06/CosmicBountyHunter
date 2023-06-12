@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CosmicHunter
 {
-    public class GamePlay
+    public class GamePlay : IUpdatable
     {
         int playState;  //state of the game
         World world;

@@ -22,9 +22,9 @@ namespace CosmicHunter
             spawnPoints[spawnPoints.Count - 1].spawnTimer.AddToTimer(1000); //same as the previous, but with 1 second delay of spawning
         }
 
-        public override void Update(Player enemy, Vector2 offset)
+        public override void Update(Vector2 offset, Player enemy)
         {
-            base.Update(enemy, offset);
+            base.Update(offset, enemy);
         }
 
         public override void ChangeRemainingEnemies(int amount)

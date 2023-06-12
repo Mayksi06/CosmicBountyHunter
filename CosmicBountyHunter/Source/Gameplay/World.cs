@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CosmicHunter
 {
     //active game logic
-    public class World
+    public class World : IUpdatable
     {
         public Vector2 offset;
         public UI userInterface;
@@ -48,8 +48,8 @@ namespace CosmicHunter
         {
             if (!user.hero.dead)                                //keep updating the game while the hero is still alive, game will pause when the hero dies
             {
-                user.Update(aiPlayer, offset);
-                aiPlayer.Update(user, offset);
+                user.Update(offset, aiPlayer);
+                aiPlayer.Update(offset, user);
 
                 for (int i = 0; i < projectiles.Count; i++)     //create the mobs after
                 {

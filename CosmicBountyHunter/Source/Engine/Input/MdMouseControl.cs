@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CosmicHunter
 {
-    public class MdMouseControl
+    public class MdMouseControl : IUpdatable
     {
         public bool dragging, rightDrag;
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CosmicHunter
 {
-    public class AttackableObject : Animated2d
+    public class AttackableObject : Animated2d, IUpdatableAttackable
     {
         public bool dead;           //check if the unit died
         public int ownerId;         //id of the owner of the object

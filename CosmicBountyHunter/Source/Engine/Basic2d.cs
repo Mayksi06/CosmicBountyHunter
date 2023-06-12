@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CosmicHunter
 {
     //draw 2d objects
-    public class Basic2d
+    public class Basic2d : IUpdatableBasic
     {
         public float rotation;
         public Vector2 position, dimensions, frameSize;    //X and Y coordinates

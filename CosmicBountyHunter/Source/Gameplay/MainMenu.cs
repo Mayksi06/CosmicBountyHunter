@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace CosmicHunter
 {
-    public class MainMenu
+    public class MainMenu : IUpdatable
     {
         public Basic2d background;
         public PassObject playClick, exitClick;

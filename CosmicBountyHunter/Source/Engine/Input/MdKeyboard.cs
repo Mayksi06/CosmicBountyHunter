@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CosmicHunter
 {
-    public class MdKeyboard
+    public class MdKeyboard : IUpdatable
     {
         public KeyboardState newKeyboard, oldKeyboard;
 

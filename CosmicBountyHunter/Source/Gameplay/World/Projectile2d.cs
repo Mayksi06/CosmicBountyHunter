@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CosmicHunter
 {
-    public class Projectile2d : Basic2d
+    public class Projectile2d : Basic2d, IUpdatableProjectile
     {
         public bool done;           //projectile disappears
         public float speed;         //projectile speed

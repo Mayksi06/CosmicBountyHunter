@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CosmicHunter
 {
-    public class UI
+    public class UI : IUpdatableWorld
     {
         public Hero hero;
         public Button2d resetButton;

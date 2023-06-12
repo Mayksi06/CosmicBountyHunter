@@ -21,9 +21,9 @@ namespace CosmicHunter
             return hero;
         }
 
-        public override void Update(Player enemy, Vector2 offset)
+        public override void Update(Vector2 offset, Player enemy)
         {
-            base.Update(enemy, offset);
+            base.Update(offset, enemy);
         }
 
         public override void ChangeScore(int score)

@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CosmicHunter
 {
-    public class FrameAnimation
+    public class FrameAnimation : IUpdatable
     {
         public bool hasFired;                                                       //for using a function during an animation
         public int totalFrames, currentFrame, maxPasses, currentPass, fireFrame;    //number of frames in the animation, maxPasses = iterate animation

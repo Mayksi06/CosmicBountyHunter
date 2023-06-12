@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CosmicHunter
 {
-    public class MdKey
+    public class MdKey : IUpdatable
     {
         public int state;
         public string key, print, display;
