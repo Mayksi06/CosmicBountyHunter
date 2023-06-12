@@ -30,8 +30,8 @@ namespace CosmicHunter
         protected override void Initialize()
         {
             //screen size
-            Globals.screenWidth = 900; //900-1600-1920
-            Globals.screenHeight = 500; //500-900-1080
+            Globals.screenWidth = 1600; //900-1600-1920
+            Globals.screenHeight = 900; //500-900-1080
 
             graphics.PreferredBackBufferWidth = Globals.screenWidth;
             graphics.PreferredBackBufferHeight = Globals.screenHeight;

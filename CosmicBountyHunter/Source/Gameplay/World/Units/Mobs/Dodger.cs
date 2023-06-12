@@ -19,8 +19,9 @@ namespace CosmicHunter
         public Dodger(Vector2 position, Vector2 frames, int ownerId)
             : base("2d\\Units\\Mobs\\dodger", position, new Vector2(60, 60), frames, ownerId)
         {
-            speed = 3.0f;
-            attackRange = 100;
+            speed = 1.0f;
+            attackRange = 10;
+            health = 5.0f;
 
             if (MainMenu.hardmode)
             {
