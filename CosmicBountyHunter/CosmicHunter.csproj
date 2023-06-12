@@ -13,18 +13,45 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Content\2d\Misc\button.xnb" />
+    <None Remove="Content\2d\Misc\cursor.xnb" />
     <None Remove="Content\2d\Misc\planet.xnb" />
+    <None Remove="Content\2d\Misc\portal.xnb" />
+    <None Remove="Content\2d\Misc\shade.xnb" />
+    <None Remove="Content\2d\Misc\simpleButton.xnb" />
+    <None Remove="Content\2d\Misc\solid.xnb" />
+    <None Remove="Content\2d\Projectiles\bullet.xnb" />
     <None Remove="Content\2d\UI\Backgrounds\background.xnb" />
     <None Remove="Content\2d\UI\Backgrounds\menuBackground.xnb" />
     <None Remove="Content\2d\Units\mainShipSheet.xnb" />
     <None Remove="Content\2d\Units\Mobs\dodger.xnb" />
+    <None Remove="Content\2d\Units\Mobs\seeker.xnb" />
     <None Remove="Content\2d\Units\Mobs\sharpshooter.xnb" />
+    <None Remove="Content\Audio\laser.xnb" />
+    <None Remove="Content\Audio\theme.xnb" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\2d\Misc\button.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\2d\Misc\cursor.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\2d\Misc\planet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\portal.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\shade.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\simpleButton.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Misc\solid.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Projectiles\bullet.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2d\UI\Backgrounds\background.xnb">
@@ -39,7 +66,16 @@
     <Content Include="Content\2d\Units\Mobs\dodger.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\2d\Units\Mobs\seeker.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\2d\Units\Mobs\sharpshooter.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\laser.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\theme.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -48,7 +84,6 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\Audio\" />
     <Folder Include="Content\bin\Windows\2d\" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">

@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +11,8 @@ namespace CosmicHunter
 {
     public class Hero : Unit
     {
+        private SoundEffectInstance shootingSoundInstance;
+
         public Hero(string path, Vector2 position, Vector2 dimensions, Vector2 frames, int ownerId)
             : base(path, position, dimensions, frames, ownerId)
         {
@@ -21,6 +25,8 @@ namespace CosmicHunter
             frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(1, 0), 3, 133, 0, "Fly"));     //(1,0), 3
             frameAnimationList.Add(new FrameAnimation(new Vector2(frameSize.X, frameSize.Y), frames, new Vector2(0, 0), 1, 133, 0, "Stand"));   //(0,0), 1
             //initialize a function for the animations
+            shootingSoundInstance = Globals.content.Load<SoundEffect>("Audio\\laser").CreateInstance();
+
         }
 
         public override void Update(Vector2 offset)
@@ -77,6 +83,8 @@ namespace CosmicHunter
             if (Globals.mouse.LeftClick())
             {
                 //hero will shoot a bullet by left clicking the mouse
+                shootingSoundInstance = Globals.content.Load<SoundEffect>("Audio\\laser").CreateInstance();
+                shootingSoundInstance.Play();
                 GameGlobals.PassProjectile(new Bullet(new Vector2(position.X, position.Y), this, new Vector2(Globals.mouse.newMousePosition.X, Globals.mouse.newMousePosition.Y)));
             }
 

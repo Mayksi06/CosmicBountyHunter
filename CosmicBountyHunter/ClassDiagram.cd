@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CosmicHunter.FrameAnimation" Collapsed="true">
-    <Position X="17.5" Y="1.25" Width="1.5" />
+    <Position X="17.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AASggRAAwYAABgAAAAgAAICAAAgEAAEIAAAAAAAAIAE=</HashCode>
       <FileName>Source\Engine\Basic2d\Animated2d\FrameAnimation.cs</FileName>
@@ -31,7 +31,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CosmicHunter.MdKey" Collapsed="true">
-    <Position X="17.5" Y="2.75" Width="1.5" />
+    <Position X="17.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQABAAAAAAAAAAAAAAEAAAAAAEAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Source\Engine\Input\Keyboard\MdKey.cs</FileName>
@@ -39,7 +39,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CosmicHunter.MdKeyboard" Collapsed="true">
-    <Position X="15.75" Y="3.5" Width="1.5" />
+    <Position X="15.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAIAAAAAAAgAAAAAAAIAAAABCAEAAAAAAAAAAkAA=</HashCode>
       <FileName>Source\Engine\Input\MdKeyboard.cs</FileName>
@@ -47,7 +47,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CosmicHunter.MdMouseControl" Collapsed="true">
-    <Position X="15.75" Y="2" Width="1.5" />
+    <Position X="15.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QJQAAAgAAAAAASA4QAAAAAQAQAiCAAUAAAIIDIAcAQA=</HashCode>
       <FileName>Source\Engine\Input\MdMouseControl.cs</FileName>
@@ -55,7 +55,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CosmicHunter.DisplayBar" Collapsed="true">
-    <Position X="17.5" Y="2" Width="1.5" />
+    <Position X="17.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQACAAAAQAAAgAAAAAAAABAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Engine\Output\DisplayBar.cs</FileName>
@@ -71,14 +71,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CosmicHunter.Globals" Collapsed="true">
-    <Position X="14" Y="1.25" Width="1.5" />
+    <Position X="14" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAEBIAABAAAgAAAABAEAAAAAAAgAAAgAgQAAAAAA=</HashCode>
       <FileName>Source\Engine\Globals.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CosmicHunter.MdTimer" Collapsed="true">
-    <Position X="15.75" Y="2.75" Width="1.5" />
+    <Position X="15.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABQAAEAAAAAABAAAAAAAAAAAAAIAAAACBAAACAAMBAA=</HashCode>
       <FileName>Source\Engine\MdTimer.cs</FileName>
@@ -150,7 +150,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CosmicHunter.UI" Collapsed="true">
-    <Position X="14" Y="2" Width="1.5" />
+    <Position X="14" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAEAAAgAAAAAAAAAAAAAAAAYAAAAAAAAQAAA=</HashCode>
       <FileName>Source\Gameplay\World\UI.cs</FileName>
@@ -165,7 +165,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CosmicHunter.MainMenu" Collapsed="true">
-    <Position X="14" Y="2.75" Width="1.5" />
+    <Position X="14" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAoAAIAAAAAAAAAAAAAQAAAAAAAAAJAA=</HashCode>
       <FileName>Source\Gameplay\MainMenu.cs</FileName>
@@ -173,7 +173,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CosmicHunter.World" Collapsed="true">
-    <Position X="14" Y="3.5" Width="1.5" />
+    <Position X="14" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AASAAJAEAAAAAgABAAAAAAAAAAAAAAAIEABCAAAAAQA=</HashCode>
       <FileName>Source\Gameplay\World.cs</FileName>
@@ -181,7 +181,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CosmicHunter.GamePlay" Collapsed="true">
-    <Position X="17.5" Y="0.5" Width="1.5" />
+    <Position X="17.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACQAEIAAAAAAAgAAAAAAAAAAAAAAAAAAEAAAAAAAgAA=</HashCode>
       <FileName>Source\GamePlay.cs</FileName>
@@ -189,7 +189,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CosmicHunter.GameGlobals" Collapsed="true">
-    <Position X="15.75" Y="1.25" Width="1.5" />
+    <Position X="15.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAIAACAAAAAwAAAAAAAAAAABAA=</HashCode>
       <FileName>GameGlobals.cs</FileName>
@@ -207,7 +207,7 @@
     <TypeIdentifier />
   </Class>
   <Class Name="CosmicHunter.CollisionManager" Collapsed="true">
-    <Position X="17.5" Y="3.5" Width="1.5" />
+    <Position X="17.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgCAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Engine\CollisionManager.cs</FileName>
@@ -235,63 +235,63 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CosmicHunter.Asteroid" Collapsed="true">
-    <Position X="19.25" Y="0.5" Width="1.5" />
+    <Position X="17.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAACAAAAAgA=</HashCode>
       <FileName>Source\Gameplay\World\Asteroid.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="CosmicHunter.IUpdatable" Collapsed="true">
-    <Position X="14" Y="5" Width="1.5" />
+    <Position X="14" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Interfaces\IUpdatable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CosmicHunter.IUpdatableBasic" Collapsed="true">
-    <Position X="17.5" Y="4.25" Width="1.5" />
+    <Position X="17.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Interfaces\IUpdatableBasic.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CosmicHunter.IUpdatableAttackable" Collapsed="true">
-    <Position X="15.75" Y="4.25" Width="1.5" />
+    <Position X="15.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Interfaces\IUpdatableAttackable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CosmicHunter.IUpdatableDisplay" Collapsed="true">
-    <Position X="15.75" Y="5" Width="1.5" />
+    <Position X="15.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Interfaces\IUpdatableDisplay.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CosmicHunter.IUpdatableProjectile" Collapsed="true">
-    <Position X="17.5" Y="5" Width="1.5" />
+    <Position X="17.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Interfaces\IUpdatableProjectile.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CosmicHunter.IUpdatableWorld" Collapsed="true">
-    <Position X="14" Y="4.25" Width="1.5" />
+    <Position X="14" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Interfaces\IUpdatableWorld.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Delegate Name="CosmicHunter.PassObject" Collapsed="true">
-    <Position X="14" Y="0.5" Width="1.5" />
+    <Position X="14" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Engine\Globals.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="CosmicHunter.PassObjectAndReturn" Collapsed="true">
-    <Position X="15.75" Y="0.5" Width="1.5" />
+    <Position X="15.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Engine\Globals.cs</FileName>
